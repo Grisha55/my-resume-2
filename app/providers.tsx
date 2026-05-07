@@ -1,3 +1,4 @@
+import ThemeProvider from '@/app/providers/ThemeProvider/ui/ThemeProvider';
 import { StrictMode } from 'react';
 
 interface ProvidersProps {
@@ -8,5 +9,9 @@ interface ProvidersProps {
 
 // Подключить ThemeProvider
 export function Providers({ children }: ProvidersProps) {
-	return <StrictMode>{children}</StrictMode>;
+	return (
+		<StrictMode>
+			<ThemeProvider>{children}</ThemeProvider>
+		</StrictMode>
+	);
 }
