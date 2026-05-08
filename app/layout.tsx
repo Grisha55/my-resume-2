@@ -1,16 +1,35 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import '../src/app/styles/globals.css';
+import { JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import '../src/app/styles/variables/globals.css';
 import { Providers } from './providers';
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['latin']
+const jetbrains = JetBrains_Mono({
+	subsets: ['latin', 'cyrillic'],
+	variable: '--font-jetbrains',
+	display: 'swap'
 });
 
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
-	subsets: ['latin']
+const hack = localFont({
+	src: [
+		{
+			path: '../public/fonts/Hack-Regular.woff2',
+			weight: '400',
+			style: 'normal'
+		},
+		{
+			path: '../public/fonts/Hack-Bold.woff2',
+			weight: '700',
+			style: 'normal'
+		},
+		{
+			path: '../public/fonts/Hack-Italic.woff2',
+			weight: '400',
+			style: 'italic'
+		}
+	],
+	variable: '--font-hack',
+	display: 'swap'
 });
 
 export const metadata: Metadata = {
@@ -26,9 +45,9 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`${geistSans.variable} ${geistMono.variable}`}
+			className={`${hack.variable} ${jetbrains.variable}`}
 		>
-			<body id='root'>
+			<body id="root">
 				<Providers>{children}</Providers>
 			</body>
 		</html>
