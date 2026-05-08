@@ -1,3 +1,4 @@
+import ErrorBoundary from '@/app/providers/ErrorBoundary/ErrorBoundary';
 import ThemeProvider from '@/app/providers/ThemeProvider/ui/ThemeProvider';
 import { StrictMode } from 'react';
 
@@ -11,7 +12,11 @@ interface ProvidersProps {
 export function Providers({ children }: ProvidersProps) {
 	return (
 		<StrictMode>
-			<ThemeProvider>{children}</ThemeProvider>
+			<ErrorBoundary>
+				<ThemeProvider>
+					{children}
+				</ThemeProvider>
+			</ErrorBoundary>
 		</StrictMode>
 	);
 }

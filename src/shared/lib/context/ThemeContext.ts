@@ -1,3 +1,5 @@
+'use client';
+
 import { Theme } from '@/shared/consts/theme';
 import { createContext } from 'react';
 
