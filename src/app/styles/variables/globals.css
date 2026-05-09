@@ -55,3 +55,19 @@
     /* xl */
     --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
 }
+
+/* app/globals.css */
+/* Добавь для красивого фокуса на кнопках */
+button:focus-visible {
+    --ring-color: var(--accent-redesigned);
+    --ring-offset-color: var(--bg-redesigned);
+    
+    @apply ring-2 ring-offset-2;
+    ring-color: var(--ring-color);
+    ring-offset-color: var(--ring-offset-color);
+}
+
+/* Анимация наведения */
+button {
+    transition: all var(--transition-duration, 0.2s) ease;
+}
