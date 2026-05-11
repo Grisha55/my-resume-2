@@ -1,8 +1,8 @@
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { useTheme } from '@/src/shared/lib/hooks/useTheme/useTheme';
 import { memo, useCallback, useEffect, useState } from 'react';
-import MoonIcon from '@/shared/assets/icons/moon.svg';
-import SunIcon from '@/shared/assets/icons/sun.svg';
-import { Theme } from '@/shared/consts/theme';
+import MoonIcon from '@/src/shared/assets/icons/moon.svg';
+import SunIcon from '@/src/shared/assets/icons/sun.svg';
+import { Theme } from '@/src/shared/consts/theme';
 
 interface ThemeSwitcherProps {
     className?: string;

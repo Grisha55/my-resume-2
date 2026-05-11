@@ -1,5 +1,5 @@
 // components/HackerModal.tsx
-import { Modal } from '@/shared/ui/Modal/Modal';
+import { Modal } from '@/src/shared/ui/Modal/Modal';
 import { ReactNode } from 'react';
 
 interface HackerModalProps {

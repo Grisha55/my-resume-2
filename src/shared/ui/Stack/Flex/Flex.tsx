@@ -1,6 +1,6 @@
 // shared/ui/redesigned/Flex/Flex.tsx
 import { DetailedHTMLProps, HTMLAttributes, ReactNode, memo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/src/shared/lib/classNames/classNames';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';

@@ -1,5 +1,5 @@
-import ErrorBoundary from '@/app/providers/ErrorBoundary/ErrorBoundary';
-import ThemeProvider from '@/app/providers/ThemeProvider/ui/ThemeProvider';
+import ErrorBoundary from '@/src/app/providers/ErrorBoundary/ErrorBoundary';
+import ThemeProvider from '@/src/app/providers/ThemeProvider/ui/ThemeProvider';
 import { StrictMode } from 'react';
 
 interface ProvidersProps {
