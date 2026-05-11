@@ -1,9 +1,9 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { useModal } from '@/shared/hooks/useModal/useModal';
-import { toggleFeatures } from '@/shared/lib/features/lib/toggleFeatures';
+import { classNames, Mods } from '@/src/shared/lib/classNames/classNames';
+import { useTheme } from '@/src/shared/lib/hooks/useTheme/useTheme';
+import { useModal } from '@/src/shared/hooks/useModal/useModal';
+import { toggleFeatures } from '@/src/shared/lib/features/lib/toggleFeatures';
 
 interface ModalProps {
     className?: string;

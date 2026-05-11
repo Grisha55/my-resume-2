@@ -1,7 +1,7 @@
-import { AppLayout } from '@/app/providers/AppLayout/AppLayout';
-import ErrorBoundary from '@/app/providers/ErrorBoundary/ErrorBoundary';
-import { Footer } from '@/widgets/Footer';
-import { Header } from '@/widgets/Header';
+import { AppLayout } from '@/src/app/providers/AppLayout/AppLayout';
+import ErrorBoundary from '@/src/app/providers/ErrorBoundary/ErrorBoundary';
+import { Footer } from '@/src/widgets/Footer';
+import { Header } from '@/src/widgets/Header';
 import { Suspense } from 'react';
 
 console.log(

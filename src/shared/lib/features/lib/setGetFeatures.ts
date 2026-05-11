@@ -1,5 +1,5 @@
-import { FeatureFlags } from '@/shared/types/featureFlags';
-import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/consts/localstorage';
+import { FeatureFlags } from '@/src/shared/types/featureFlags';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/src/shared/consts/localstorage';
 
 // Функция для получения значения из localStorage (только на клиенте)
 const getInitialFeatureFlags = (): FeatureFlags => {

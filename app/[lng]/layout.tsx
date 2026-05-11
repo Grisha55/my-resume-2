@@ -1,9 +1,18 @@
 import type { Metadata, Viewport } from 'next'; // Добавляем импорт Viewport
+import { initServerI18next, getT, getResources, generateI18nStaticParams } from 'next-i18next/server';
+import { I18nProvider } from 'next-i18next/client';
+import i18nConfig from '@/i18n.config';
 import { JetBrains_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
-import '../src/app/styles/variables/globals.css';
-import { AppPageLayout } from './app-layout';
-import { Providers } from './providers';
+import { AppPageLayout } from '../app-layout';
+import { Providers } from '../providers';
+import '@/src/app/styles/variables/globals.css';
+
+initServerI18next(i18nConfig)
+
+export async function generateStaticParams() {
+  return generateI18nStaticParams()
+}
 
 const jetbrains = JetBrains_Mono({
     subsets: ['latin', 'cyrillic'],
@@ -14,7 +23,7 @@ const jetbrains = JetBrains_Mono({
 const hack = localFont({
     src: [
         {
-            path: '../public/fonts/Hack-Regular.woff2',
+            path: '../../public/fonts/Hack-Regular.woff2',
             weight: '400',
             style: 'normal'
         },
@@ -92,20 +101,28 @@ export const viewport: Viewport = {
     ],
 };
 
-export default function RootLayout({
-    children
+export default async function RootLayout({
+    children,
+    params,
 }: Readonly<{
     children: React.ReactNode;
+    params: Promise<{ lng: string }>;
 }>) {
+    const { lng } = await params;
+    const { i18n } = await getT();
+    const resources = getResources(i18n);
+
     return (
         <html
-            lang="ru"
+            lang={lng}
             className={`${hack.variable} ${jetbrains.variable}`}
         >
             <body id="root">
-                <Providers>
-                    <AppPageLayout>{children}</AppPageLayout>
-                </Providers>
+                <I18nProvider language={lng} resources={resources}>
+                    <Providers>
+                        <AppPageLayout>{children}</AppPageLayout>
+                    </Providers>
+                </I18nProvider>
             </body>
         </html>
     );

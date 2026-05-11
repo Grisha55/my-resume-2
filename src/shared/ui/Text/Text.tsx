@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/src/shared/lib/classNames/classNames';
 
 export type TextVariant = 'primary' | 'error' | 'accent';
 export type TextAlign = 'right' | 'left' | 'center';

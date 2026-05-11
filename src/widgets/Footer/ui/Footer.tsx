@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Modal } from '@/shared/ui/Modal/Modal';
-import { Text } from '@/shared/ui/Text';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Text } from '@/src/shared/ui/Text';
+import { Modal } from '@/src/shared/ui/Modal';
 
 // Компонент модального окна для условий
 const TermsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => (

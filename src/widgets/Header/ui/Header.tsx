@@ -1,14 +1,14 @@
 'use client';
 
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import AvatarIcon from '@/shared/assets/icons/avatar.svg';
-import { ToggleFeatures } from '@/shared/lib/features/components/ToggleFeatures/ToggleFeatures';
-import { NavLink } from '@/shared/ui/NavLink';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
-import Image from 'next/image';
+import { HStack, VStack } from '@/src/shared/ui/Stack';
+import AvatarIcon from '@/src/shared/assets/icons/avatar.svg';
 import Link from 'next/link';
 import { memo, useCallback, useEffect, useState } from 'react';
+import { NavLink } from '@/src/shared/ui/NavLink';
+import { ThemeSwitcher } from '@/src/features/ThemeSwitcher';
+import { LangSwitcher } from '@/src/features/LangSwitcher';
+import { Text } from '@/src/shared/ui/Text';
+import { ToggleFeatures } from '@/src/shared/lib/features/components/ToggleFeatures/ToggleFeatures';
 
 interface HeaderProps {
 	className?: string;
@@ -149,7 +149,7 @@ export const Header = memo(
 							align="center"
 						>
 							<ThemeSwitcher variant="minimal" />
-							{/* <LangSwitcher variant="minimal" /> */}
+							<LangSwitcher variant="minimal" />
 
 							{/* Бургер-меню для мобильных */}
 							<button
@@ -242,7 +242,7 @@ export const Header = memo(
 							className="p-6 border-t border-(--border-light) w-full"
 						>
 							<ThemeSwitcher variant="default" />
-							{/* <LangSwitcher variant="default" /> */}
+							<LangSwitcher variant="default" />
 						</HStack>
 
 						{/* Версия */}
@@ -291,7 +291,7 @@ export const Header = memo(
 
 						<HStack gap="16">
 							<ThemeSwitcher variant="minimal" />
-							{/* <LangSwitcher variant="minimal" /> */}
+							<LangSwitcher variant="minimal" />
 						</HStack>
 					</HStack>
 				</div>

@@ -1,5 +1,5 @@
 // components/ui/Button/Button.tsx
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/src/shared/lib/classNames/classNames';
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode } from 'react';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
