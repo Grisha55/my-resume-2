@@ -11,6 +11,7 @@ interface NavLinkProps {
 	className?: string;
 	activeClassName?: string;
 	inactiveClassName?: string;
+	onClick?: () => void;
 }
 
 export const NavLink = memo((props: NavLinkProps) => {
@@ -21,6 +22,7 @@ export const NavLink = memo((props: NavLinkProps) => {
 		className,
 		activeClassName,
 		inactiveClassName,
+		onClick,
 		...otherProps
 	} = props;
 
@@ -31,7 +33,7 @@ export const NavLink = memo((props: NavLinkProps) => {
 	const finalClassName = `${className} ${isActive ? activeClassName : inactiveClassName}`.trim();
 
 	return (
-		<Link href={href} className={finalClassName} {...otherProps}>
+		<Link href={href} className={finalClassName} onClick={onClick} {...otherProps}>
 			{children}
 		</Link>
 	)

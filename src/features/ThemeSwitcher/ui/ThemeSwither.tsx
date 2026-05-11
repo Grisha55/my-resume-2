@@ -1,8 +1,5 @@
-// features/ThemeSwitcher/ui/ThemeSwitcher.tsx
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { memo, useCallback, useEffect, useState } from 'react';
-
-// Импортируем иконки
 import MoonIcon from '@/shared/assets/icons/moon.svg';
 import SunIcon from '@/shared/assets/icons/sun.svg';
 import { Theme } from '@/shared/consts/theme';

@@ -241,7 +241,7 @@ export const Footer = () => {
                                 className="flex items-center gap-2 text-(--text-secondary) hover:text-(--primary-color) transition-colors duration-200"
                             >
                                 <Image
-                                    src="/assets/images/github.png"
+                                    src="/src/shared/assets/images/github.png"
                                     alt="GitHub"
                                     width={20}
                                     height={20}
