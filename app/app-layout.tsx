@@ -1,3 +1,9 @@
+import { AppLayout } from '@/app/providers/AppLayout/AppLayout';
+import ErrorBoundary from '@/app/providers/ErrorBoundary/ErrorBoundary';
+import { Footer } from '@/widgets/Footer';
+import { Header } from '@/widgets/Header';
+import { Suspense } from 'react';
+
 console.log(
 	'%c\n' +
 		'╔══════════════════════════════════════════════════════════╗\n' +
@@ -128,8 +134,23 @@ console.log(
 
 export function AppPageLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="page">
-			<div className="main">{children}</div>
-		</div>
+		<ErrorBoundary data-testid='AppPageLayout'>
+			<AppLayout
+				header={
+					<Suspense>
+						<Header />
+					</Suspense>
+				}
+				footer={
+					<Suspense>
+						<Footer />
+					</Suspense>
+				}
+			>
+				<ErrorBoundary>
+					<Suspense>{children}</Suspense>
+				</ErrorBoundary>
+			</AppLayout>
+		</ErrorBoundary>
 	);
 }
