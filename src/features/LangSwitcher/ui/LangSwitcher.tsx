@@ -1,16 +1,15 @@
-'use client'
+'use client';
 
-import { usePathname, useRouter } from 'next/navigation'
-import { useT } from 'next-i18next/client'
-import i18nConfig from '@/i18n.config'
+import { usePathname, useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { ToggleFeatures } from '@/src/shared/lib/features/components/ToggleFeatures/ToggleFeatures';
 import { Button } from '@/src/shared/ui/Button';
 import { HStack } from '@/src/shared/ui/Stack';
 
 interface LangSwitcherProps {
-  className?: string
-  short?: boolean
-  variant?: 'default' | 'minimal' | 'with-text'
+  className?: string;
+  short?: boolean;
+  variant?: 'default' | 'minimal' | 'with-text';
 }
 
 export const LangSwitcher = ({ 
@@ -18,33 +17,17 @@ export const LangSwitcher = ({
   short, 
   variant = 'default' 
 }: LangSwitcherProps) => {
-  const pathname = usePathname()
-  const router = useRouter()
-  const { i18n } = useT()
-  const { supportedLngs, fallbackLng } = i18nConfig
-  const currentLng = i18n.language
+  const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale(); // Используем useLocale() вместо useT()
 
-  const switchLocale = (locale: string) => {
-    // Убираем текущую локаль из пути
-    const segments = pathname.split('/').filter(Boolean)
-    const pathWithoutLocale = supportedLngs.includes(segments[0])
-      ? segments.slice(1)
-      : segments
-    
-    // Формируем новый путь
-    let nextPath: string
-    if (locale === fallbackLng) {
-      nextPath = `/${pathWithoutLocale.join('/')}`
-    } else {
-      nextPath = `/${locale}/${pathWithoutLocale.join('/')}`
-    }
-    
-    // Очищаем путь
-    nextPath = nextPath === '/' ? '/' : nextPath.replace(/\/$/, '')
-    router.push(nextPath)
-  }
+  const switchLocale = (newLocale: string) => {
+    // Заменяем текущий язык в URL на новый
+    const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
+    router.push(newPathname);
+  };
 
-  const isRu = currentLng === 'ru'
+  const isRu = locale === 'ru';
 
   const getButtonStyles = () => {
     switch (variant) {
@@ -55,14 +38,14 @@ export const LangSwitcher = ({
           focus:outline-none focus:ring-2 focus:ring-[var(--accent-redesigned)]
           text-gray-600 dark:text-gray-400
           hover:text-[var(--primary-color)]
-        `
+        `;
       case 'with-text':
         return `
           px-4 py-2 rounded-lg flex items-center gap-3 transition-all duration-200
           bg-[var(--bg-redesigned)] hover:bg-[var(--light-bg-redesigned)]
           focus:outline-none focus:ring-2 focus:ring-[var(--accent-redesigned)]
           text-[var(--text-redesigned)]
-        `
+        `;
       default:
         return `
           relative p-2 rounded-xl transition-all duration-300
@@ -71,9 +54,9 @@ export const LangSwitcher = ({
           focus:outline-none focus:ring-2 focus:ring-[var(--accent-redesigned)]
           text-[var(--icon-redesigned)] hover:text-[var(--accent-redesigned)]
           group font-bold
-        `
+        `;
     }
-  }
+  };
 
   return (
     <ToggleFeatures
@@ -101,5 +84,5 @@ export const LangSwitcher = ({
         </button>
       }
     />
-  )
-}
+  );
+};
