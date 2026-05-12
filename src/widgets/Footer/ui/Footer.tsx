@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Text } from '@/src/shared/ui/Text';
 import { Modal } from '@/src/shared/ui/Modal';
+import githubIcon from '@/src/shared/assets/images/github.png';
 
 // Компонент модального окна для условий
 const TermsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => (
@@ -241,7 +242,7 @@ export const Footer = () => {
                                 className="flex items-center gap-2 text-(--text-secondary) hover:text-(--primary-color) transition-colors duration-200"
                             >
                                 <Image
-                                    src="/src/shared/assets/images/github.png"
+                                    src={githubIcon}
                                     alt="GitHub"
                                     width={20}
                                     height={20}

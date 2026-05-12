@@ -1,17 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
+// middleware.ts (или proxy.ts)
+import createMiddleware from 'next-intl/middleware';
 
-// Экспортируем функцию с именем 'proxy' (или как default)
-export function proxy(request: NextRequest) {
-  // Здесь будет твоя логика (редирект, проверка языка и т.д.)
-  
-  // Если ничего не делаем, просто пропускаем запрос дальше
-  return NextResponse.next();
-}
+export default createMiddleware({
+  locales: ['ru', 'en'],
+  defaultLocale: 'ru',
+  localePrefix: 'always', // всегда показывать префикс /ru /en
+});
 
-// Настройка, на какие пути должен срабатывать proxy
 export const config = {
-  matcher: [
-    // Пропускаем статические файлы и внутренние пути Next.js
-    '/((?!_next/static|_next/image|favicon.ico|assets|.*\\.png|.*\\.jpg|.*\\.svg).*)',
-  ],
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 };
