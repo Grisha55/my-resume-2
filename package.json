@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "json-server": "node json-server/server.mjs",
+    "json-server:watch": "nodemon json-server/server.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -31,6 +33,8 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "json-server": "^0.17.4",
+    "multer": "^2.1.1",
     "tailwindcss": "^4.2.4",
     "typescript": "^5"
   }
