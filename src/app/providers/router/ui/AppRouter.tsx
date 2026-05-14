@@ -3,7 +3,7 @@
 import React, { memo, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 import { routeConfig } from '../config/routeConfig';
-// import { PageLoader } from '@/widgets/PageLoader';
+import { PageLoader } from '@/src/widgets/PageLoader';
 
 const AppRouter = () => {
     const pathname = usePathname();
