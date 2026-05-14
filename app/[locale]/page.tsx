@@ -1,5 +1,7 @@
-export default function Home() {
-  return (
-    <div>Hello! This is my resume, where your can find information about me.</div>
-  );
+export default function AboutPage() {
+	return (
+		<div>
+			<h1>Обо мне</h1>
+		</div>
+	);
 }
