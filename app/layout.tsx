@@ -81,10 +81,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang={locale} className={`${hack.variable} ${jetbrains.variable}`}>
-      <body id="root">
+      <body id="root" className="bg-black">
         <NextIntlClientProvider messages={messages}>
           <Providers>
-            <AppPageLayout>{children}</AppPageLayout>
+              <AppPageLayout>{children}</AppPageLayout>
           </Providers>
         </NextIntlClientProvider>
       </body>
