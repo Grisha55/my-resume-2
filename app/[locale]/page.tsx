@@ -1,7 +1,9 @@
+import { AboutView } from '@/src/views/aboutPage';
+
 export default function AboutPage() {
 	return (
-		<div>
-			<h1>Обо мне</h1>
+		<div className="mt-20">
+			<AboutView />
 		</div>
 	);
 }
