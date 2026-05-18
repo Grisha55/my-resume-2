@@ -1,4 +1,3 @@
-// src/views/aboutPage/AboutView.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -30,11 +29,11 @@ export function AboutView() {
 
 	return (
 		<div
-			className="relative min-h-screen bg-black pb-16"
+			className="relative min-h-screen pb-16 bg-black"
 			style={{ paddingTop: '100px' }}
 		>
 			{/* Хакерский фон */}
-			<div className="absolute inset-0 opacity-10 pointer-events-none">
+			<div className="absolute inset-0 pointer-events-none opacity-10">
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)]" />
 				<div
 					className="absolute inset-0 bg-repeat"
@@ -46,7 +45,7 @@ export function AboutView() {
 			</div>
 
 			{/* Эффект сканирования */}
-			<div className="absolute inset-0 pointer-events-none overflow-hidden">
+			<div className="absolute inset-0 overflow-hidden pointer-events-none">
 				<div className="absolute top-0 left-0 right-0 h-0.5 bg-(--primary-color) shadow-[0_0_10px_var(--primary-color)] animate-scan" />
 			</div>
 
@@ -68,9 +67,9 @@ export function AboutView() {
 								align="center"
 							>
 								<div className="flex gap-2">
-									<div className="w-3 h-3 rounded-full bg-red-500" />
-									<div className="w-3 h-3 rounded-full bg-yellow-500" />
-									<div className="w-3 h-3 rounded-full bg-green-500" />
+									<div className="w-3 h-3 bg-red-500 rounded-full" />
+									<div className="w-3 h-3 bg-yellow-500 rounded-full" />
+									<div className="w-3 h-3 bg-green-500 rounded-full" />
 								</div>
 								<span className="text-(--primary-color) text-xs font-mono">
 									root@resume:~/about$
@@ -82,8 +81,8 @@ export function AboutView() {
 						{/* Контент */}
 						<VStack
 							gap="24"
-							className="md:p-8 w-full"
-                            style={{ padding: '20px' }}
+							className="w-full md:p-8"
+							style={{ padding: '20px' }}
 						>
 							{/* Заголовок с анимацией */}
 							<VStack
@@ -103,7 +102,7 @@ export function AboutView() {
 									align="center"
 								>
 									<span className="text-(--primary-color) font-mono">$</span>
-									<span className="text-gray-500 text-sm font-mono">
+									<span className="font-mono text-sm text-gray-500">
 										cat about.md --verbose
 									</span>
 								</HStack>
@@ -124,8 +123,8 @@ export function AboutView() {
 										align="center"
 										className="text-(--primary-color)"
 									>
-										<span className="text-sm font-mono">$&gt;</span>
-										<span className="text-sm opacity-70 font-mono">
+										<span className="font-mono text-sm">$&gt;</span>
+										<span className="font-mono text-sm opacity-70">
 											# Теннис → Код
 										</span>
 									</HStack>
@@ -146,8 +145,8 @@ export function AboutView() {
 										align="center"
 										className="text-(--primary-color)"
 									>
-										<span className="text-sm font-mono">$&gt;</span>
-										<span className="text-sm opacity-70 font-mono">
+										<span className="font-mono text-sm">$&gt;</span>
+										<span className="font-mono text-sm opacity-70">
 											# Первый код
 										</span>
 									</HStack>
@@ -167,8 +166,8 @@ export function AboutView() {
 										align="center"
 										className="text-(--primary-color)"
 									>
-										<span className="text-sm font-mono">$&gt;</span>
-										<span className="text-sm opacity-70 font-mono">
+										<span className="font-mono text-sm">$&gt;</span>
+										<span className="font-mono text-sm opacity-70">
 											# Почему веб?
 										</span>
 									</HStack>
@@ -189,8 +188,8 @@ export function AboutView() {
 										align="center"
 										className="text-(--primary-color)"
 									>
-										<span className="text-sm font-mono">$&gt;</span>
-										<span className="text-sm opacity-70 font-mono">
+										<span className="font-mono text-sm">$&gt;</span>
+										<span className="font-mono text-sm opacity-70">
 											# Философия
 										</span>
 									</HStack>
@@ -215,7 +214,7 @@ export function AboutView() {
 										<span className="text-(--primary-color) font-mono text-sm">
 											$&gt;
 										</span>
-										<span className="text-gray-400 font-mono text-sm">
+										<span className="font-mono text-sm text-gray-400">
 											Мои проекты здесь:
 										</span>
 									</HStack>
@@ -223,14 +222,17 @@ export function AboutView() {
 										href="https://github.com/Grisha55"
 										target="_blank"
 										rel="noopener noreferrer"
-										className="group flex items-center gap-3 px-5 bg-(--primary-color)/10 border border-(--primary-color) rounded-lg hover:bg-(--primary-color)/20 transition-all duration-300 hover:scale-105"
+										className="group flex items-center gap-4 py-3 bg-(--primary-color)/10 border border-(--primary-color) rounded-lg hover:bg-(--primary-color)/20 transition-all duration-300 hover:scale-105"
+										style={{ paddingLeft: '24px', paddingRight: '24px' }}
 									>
 										<span className="text-2xl">🐙</span>
-										<VStack gap="4">
-											<span className="text-(--primary-color) font-bold font-mono text-sm">
+										<VStack
+											className="flex-1"
+										>
+											<span className="text-(--primary-color) font-bold font-mono text-sm text-center">
 												[ GitHub ]
 											</span>
-											<span className="text-xs text-gray-500 font-mono">
+											<span className="font-mono text-xs text-center text-gray-500">
 												github.com/Grisha55
 											</span>
 										</VStack>
@@ -244,13 +246,13 @@ export function AboutView() {
 							{/* Статус бар */}
 							<div
 								className="flex gap-6 justify-between items-center pt-4 border-t border-(--primary-color)/30 w-full flex-wrap"
-                                style={{ paddingTop: '10px' }}
+								style={{ paddingTop: '10px' }}
 							>
 								<HStack
 									gap="16"
 									align="center"
 								>
-									<span className="text-gray-500 text-xs font-mono">
+									<span className="font-mono text-xs text-gray-500">
 										user@resume:~/about$
 									</span>
 									<span className="text-(--primary-color) text-xs font-mono">
@@ -261,10 +263,10 @@ export function AboutView() {
 									gap="8"
 									align="center"
 								>
-									<span className="text-gray-500 text-xs font-mono">
+									<span className="font-mono text-xs text-gray-500">
 										📁 sections: 6
 									</span>
-									<span className="text-gray-500 text-xs font-mono">
+									<span className="font-mono text-xs text-gray-500">
 										📊 coverage: 100%
 									</span>
 								</HStack>
@@ -273,8 +275,8 @@ export function AboutView() {
 					</div>
 
 					{/* Терминальная строка */}
-					<div className="text-center w-full">
-						<span className="text-xs text-gray-600 font-mono select-none animate-pulse">
+					<div className="w-full text-center">
+						<span className="font-mono text-xs text-gray-600 select-none animate-pulse">
 							⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ READY ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 						</span>
 					</div>
