@@ -167,3 +167,24 @@ button {
 .animate-shimmer {
     animation: shimmer 1.5s ease-in-out infinite;
 }
+
+/* Эффект глитча для активной ссылки */
+@keyframes glitch-link {
+    0%, 100% {
+        text-shadow: 0 0 2px var(--primary-color);
+    }
+    25% {
+        text-shadow: -1px 0 var(--primary-color), 1px 0 var(--accent-redesigned);
+    }
+    50% {
+        text-shadow: 1px 0 var(--primary-color), -1px 0 var(--accent-redesigned);
+    }
+    75% {
+        text-shadow: 0 0 4px var(--primary-color);
+    }
+}
+
+/* Анимация для активной ссылки */
+.nav-link-active {
+    animation: glitch-link 0.5s ease-in-out;
+}
