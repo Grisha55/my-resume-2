@@ -5,8 +5,7 @@ import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect';
 import { VStack } from '@/src/shared/ui/Stack';
-import { TerminalLine } from '@/src/shared/ui/TerminalLine';
-import { TypingHeader } from '@/src/shared/ui/TypingHeader/TypingHeader';
+import { TerminalWindow } from '@/src/shared/ui/TerminalWindow/TerminalWindow';
 
 interface Project {
 	id: number;
@@ -57,7 +56,6 @@ const projects: Project[] = [
 ];
 
 export const ProjectsView = () => {
-
 	return (
 		<div className="relative min-h-screen bg-black">
 			{/* Хакерский фон */}
@@ -73,27 +71,14 @@ export const ProjectsView = () => {
 			>
 				<Container maxWidth="lg">
 					{/* Терминальное окно */}
-					<div
-						className="bg-black/90 border-2 border-(--primary-color) rounded-lg shadow-[0_0_30px_rgba(0,255,65,0.3)] backdrop-blur-sm overflow-hidden w-full"
-						style={{ paddingLeft: '20px', paddingRight: '20px' }}
+					<TerminalWindow
+						title="root@resume:~/projects$"
+						subtitle="ls -la /projects --details"
+						headerText=">_ Мои проекты -> .... .."
+						withPadding={false}
 					>
-						{/* Заголовок терминала */}
-						<div className="flex items-center justify-between px-4 py-2 border-b border-(--primary-color)/30 bg-black/50">
-							<div className="flex gap-2">
-								<div className="w-3 h-3 bg-red-500 rounded-full" />
-								<div className="w-3 h-3 bg-yellow-500 rounded-full" />
-								<div className="w-3 h-3 bg-green-500 rounded-full" />
-							</div>
-							<span className="text-(--primary-color) text-xs font-mono">
-								root@resume:~/projects$
-							</span>
-							<div className="w-16" />
-						</div>
-
 						{/* Контент */}
 						<div className="p-6 md:p-8">
-							{/* Заголовок */}
-							<TypingHeader text=">_ Мои проекты" subtitle="cat projects.md --verbose" />
 							{/* Описание */}
 							<div className="mb-8">
 								<div className="flex items-center gap-2 text-(--primary-color) mb-2">
@@ -185,10 +170,7 @@ export const ProjectsView = () => {
 								</div>
 							</div>
 						</div>
-					</div>
-
-					{/* Терминальная строка */}
-					<TerminalLine text="DEPLOY:SUCCESS" />
+					</TerminalWindow>
 				</Container>
 			</div>
 		</div>

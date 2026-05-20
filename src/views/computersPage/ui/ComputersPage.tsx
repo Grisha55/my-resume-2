@@ -4,14 +4,12 @@ import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { VStack } from '@/src/shared/ui/Stack';
-import { TerminalLine } from '@/src/shared/ui/TerminalLine';
-import { TypingHeader } from '@/src/shared/ui/TypingHeader';
+import { TerminalWindow } from '@/src/shared/ui/TerminalWindow';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 export const ComputersView = () => {
-    const fullText = '>_ Путь к веб-разработке!';
+    const fullText = '>_ Моя ежедневная рутина.';
 
     return (
         <div className="relative bg-black">
@@ -25,25 +23,10 @@ export const ComputersView = () => {
             <div className="pt-20 pb-16" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
                 <Container maxWidth="lg">
                     {/* Терминальное окно */}
-                    <div className="bg-black/90 border-2 border-(--primary-color) rounded-lg shadow-[0_0_30px_rgba(0,255,65,0.3)] backdrop-blur-sm overflow-hidden w-full" style={{ paddingLeft: '20px', paddingRight: '20px' }}>
-                        
-                        {/* Заголовок терминала */}
-                        <div className="flex items-center justify-between px-4 py-2 border-b border-(--primary-color)/30 bg-black/50">
-                            <div className="flex gap-2">
-                                <div className="w-3 h-3 bg-red-500 rounded-full" />
-                                <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                                <div className="w-3 h-3 bg-green-500 rounded-full" />
-                            </div>
-                            <span className="text-(--primary-color) text-xs font-mono">
-                                root@resume:~/computers$
-                            </span>
-                            <div className="w-16" />
-                        </div>
+                    <TerminalWindow title={"root@resume:~/computers$"} subtitle="ls -la /computers --details" headerText={fullText} withPadding={false}>
 
                         {/* Контент */}
                         <div className="p-6 md:p-8">
-                            {/* Заголовок */}
-                            <TypingHeader text={fullText} subtitle="cat my-way.md --verbose" />
 
                             {/* Терминальная строка с кодом */}
                             <div className="mb-6 overflow-x-auto">
@@ -163,10 +146,7 @@ export const ComputersView = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Терминальная строка */}
-                    <TerminalLine text="SYSTEM:ACTIVE" />
+                    </TerminalWindow>
                 </Container>
             </div>
         </div>
