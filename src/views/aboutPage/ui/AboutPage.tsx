@@ -4,7 +4,7 @@ import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { HStack, VStack } from '@/src/shared/ui/Stack';
-import { TerminalLine } from '@/src/shared/ui/TerminalLine';
+import { TerminalWindow } from '@/src/shared/ui/TerminalWindow';
 import { TypingHeader } from '@/src/shared/ui/TypingHeader';
 import Link from 'next/link';
 
@@ -28,28 +28,7 @@ export function AboutView() {
 					className="w-full"
 				>
 					{/* Терминальное окно */}
-					<div className="bg-black/90 border-2 border-(--primary-color) rounded-lg shadow-[0_0_30px_rgba(0,255,65,0.3)] backdrop-blur-sm overflow-hidden w-full">
-						{/* Заголовок терминала */}
-						<HStack
-							justify="between"
-							align="center"
-							className="px-4 py-2 border-b border-(--primary-color)/30 bg-black/50 w-full"
-						>
-							<HStack
-								gap="8"
-								align="center"
-							>
-								<div className="flex gap-2">
-									<div className="w-3 h-3 bg-red-500 rounded-full" />
-									<div className="w-3 h-3 bg-yellow-500 rounded-full" />
-									<div className="w-3 h-3 bg-green-500 rounded-full" />
-								</div>
-								<span className="text-(--primary-color) text-xs font-mono">
-									root@resume:~/about$
-								</span>
-							</HStack>
-							<div className="w-16" />
-						</HStack>
+					<TerminalWindow title="root@resume:~/about$" subtitle="cat about-me.txt --verbose" headerText={fullText} withPadding={false}>
 
 						{/* Контент */}
 						<VStack
@@ -57,8 +36,6 @@ export function AboutView() {
 							className="w-full md:p-8"
 							style={{ padding: '20px' }}
 						>
-							{/* Заголовок с анимацией */}
-							<TypingHeader text={fullText} />
 							{/* Основной текст */}
 							<VStack
 								gap="24"
@@ -223,10 +200,7 @@ export function AboutView() {
 								</HStack>
 							</div>
 						</VStack>
-					</div>
-
-					{/* Терминальная строка */}
-					<TerminalLine text="READY" />
+					</TerminalWindow>
 				</VStack>
 			</Container>
 		</div>
