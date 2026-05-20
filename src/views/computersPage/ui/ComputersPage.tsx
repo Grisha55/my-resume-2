@@ -2,6 +2,7 @@
 
 import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
+import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { VStack } from '@/src/shared/ui/Stack';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,9 +36,7 @@ export const ComputersView = () => {
             <HackerBackground />
 
             {/* Эффект сканирования */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-(--primary-color) shadow-[0_0_10px_var(--primary-color)] animate-scan" />
-            </div>
+            <ScanEffect speed="slow" />
 
             {/* Контент с отступами */}
             <div className="pt-20 pb-16" style={{ paddingTop: '100px', paddingBottom: '100px' }}>

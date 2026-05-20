@@ -147,12 +147,90 @@ button {
     animation: glitch 0.3s ease-in-out;
 }
 
-.animate-scan {
-    animation: scan 4s linear infinite;
-}
-
 .terminal-glow {
     animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* app/globals.css */
+
+/* Горизонтальная анимация (сверху вниз) */
+@keyframes scan {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+@keyframes scan-slow {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+@keyframes scan-fast {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+/* Вертикальная анимация (слева направо) */
+@keyframes scan-vertical {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+@keyframes scan-vertical-slow {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+@keyframes scan-vertical-fast {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+.animate-scan {
+    animation: scan 3s linear infinite;
+}
+
+.animate-scan-slow {
+    animation: scan-slow 5s linear infinite;
+}
+
+.animate-scan-fast {
+    animation: scan-fast 2s linear infinite;
+}
+
+.animate-scan-vertical {
+    animation: scan-vertical 3s linear infinite;
+}
+
+.animate-scan-vertical-slow {
+    animation: scan-vertical-slow 5s linear infinite;
+}
+
+.animate-scan-vertical-fast {
+    animation: scan-vertical-fast 2s linear infinite;
 }
 
 @keyframes shimmer {

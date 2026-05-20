@@ -5,6 +5,7 @@ import { Container } from '@/src/shared/ui/Container';
 import { VStack } from '@/src/shared/ui/Stack';
 import { ContactForm } from '@/src/shared/ui/ContactForm/ContactForm';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
+import { ScanEffect } from '@/src/shared/ui/ScanEffect';
 
 interface Project {
 	id: number;
@@ -62,9 +63,7 @@ export const ProjectsView = () => {
 			<HackerBackground />
 
 			{/* Эффект сканирования */}
-			<div className="absolute inset-0 overflow-hidden pointer-events-none">
-				<div className="absolute top-0 left-0 right-0 h-0.5 bg-(--primary-color) shadow-[0_0_10px_var(--primary-color)] animate-scan" />
-			</div>
+			<ScanEffect speed="slow" />
 
 			{/* Контент с отступами */}
 			<div

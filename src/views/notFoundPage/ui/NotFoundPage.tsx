@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
+import { ScanEffect } from '@/src/shared/ui/ScanEffect';
 
 export function NotFoundView() {
     const router = useRouter();
@@ -160,9 +161,7 @@ export function NotFoundView() {
             </div>
 
             {/* Эффект сканирования */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-(--primary-color) shadow-[0_0_10px_var(--primary-color)] animate-scan" />
-            </div>
+            <ScanEffect speed="slow" />
         </div>
     );
 }
