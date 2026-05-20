@@ -6,24 +6,13 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect';
+import { TypingHeader } from '@/src/shared/ui/TypingHeader';
 
 export function NotFoundView() {
     const router = useRouter();
     const [countdown, setCountdown] = useState(10);
     const [glitch, setGlitch] = useState(false);
-    const [typedText, setTypedText] = useState('');
     const fullText = '>_ ERROR_404: PAGE_NOT_FOUND.exe';
-
-    // Эффект печатающей машинки
-    useEffect(() => {
-        let i = 0;
-        const interval = setInterval(() => {
-            setTypedText(fullText.slice(0, i));
-            i++;
-            if (i > fullText.length) clearInterval(interval);
-        }, 50);
-        return () => clearInterval(interval);
-    }, []);
 
     // Эффект глитча
     useEffect(() => {
@@ -92,12 +81,7 @@ export function NotFoundView() {
                         </div>
 
                         {/* Печатающаяся строка */}
-                        <div className="mb-6">
-                            <p className="text-(--primary-color) text-sm md:text-base">
-                                {typedText}
-                                <span className="animate-blink">█</span>
-                            </p>
-                        </div>
+                        <TypingHeader text={fullText} subtitle={countdown.toString()} />
 
                         {/* Сообщение об ошибке */}
                         <div className="mb-8 space-y-3 text-sm md:text-base">
