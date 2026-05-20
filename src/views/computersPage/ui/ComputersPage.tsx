@@ -1,6 +1,7 @@
 'use client';
 
 import { Container } from '@/src/shared/ui/Container';
+import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { VStack } from '@/src/shared/ui/Stack';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -31,16 +32,7 @@ export const ComputersView = () => {
     return (
         <div className="relative bg-black">
             {/* Хакерский фон */}
-            <div className="fixed inset-0 pointer-events-none opacity-10">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)]" />
-                <div
-                    className="absolute inset-0 bg-repeat"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%2300ff41' font-family='monospace' font-size='12'%3E01%3C/text%3E%3C/svg%3E")`,
-                        backgroundSize: '30px 30px'
-                    }}
-                />
-            </div>
+            <HackerBackground />
 
             {/* Эффект сканирования */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
