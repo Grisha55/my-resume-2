@@ -1,34 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { Container } from '@/src/shared/ui/Container';
-import { HStack, VStack } from '@/src/shared/ui/Stack';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
+import { HStack, VStack } from '@/src/shared/ui/Stack';
 import { TerminalLine } from '@/src/shared/ui/TerminalLine';
+import { TypingHeader } from '@/src/shared/ui/TypingHeader';
+import Link from 'next/link';
 
 export function AboutView() {
-	const [typedText, setTypedText] = useState('');
-	const [showCursor, setShowCursor] = useState(true);
 	const fullText = '>_ От тенниса — к первой строке кода.';
-
-	useEffect(() => {
-		let i = 0;
-		const interval = setInterval(() => {
-			setTypedText(fullText.slice(0, i));
-			i++;
-			if (i > fullText.length) clearInterval(interval);
-		}, 50);
-		return () => clearInterval(interval);
-	}, []);
-
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setShowCursor(prev => !prev);
-		}, 500);
-		return () => clearInterval(interval);
-	}, []);
 
 	return (
 		<div
@@ -77,29 +58,7 @@ export function AboutView() {
 							style={{ padding: '20px' }}
 						>
 							{/* Заголовок с анимацией */}
-							<VStack
-								gap="8"
-								className="w-full"
-							>
-								<h1 className="text-2xl md:text-3xl text-(--primary-color) font-bold font-mono">
-									{typedText}
-									<span
-										className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}
-									>
-										█
-									</span>
-								</h1>
-								<HStack
-									gap="4"
-									align="center"
-								>
-									<span className="text-(--primary-color) font-mono">$</span>
-									<span className="font-mono text-sm text-gray-500">
-										cat about.md --verbose
-									</span>
-								</HStack>
-							</VStack>
-
+							<TypingHeader text={fullText} />
 							{/* Основной текст */}
 							<VStack
 								gap="24"

@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
-import { Container } from '@/src/shared/ui/Container';
-import { VStack } from '@/src/shared/ui/Stack';
 import { ContactForm } from '@/src/shared/ui/ContactForm/ContactForm';
+import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect';
+import { VStack } from '@/src/shared/ui/Stack';
 import { TerminalLine } from '@/src/shared/ui/TerminalLine';
+import { TypingHeader } from '@/src/shared/ui/TypingHeader/TypingHeader';
 
 interface Project {
 	id: number;
@@ -93,15 +93,7 @@ export const ProjectsView = () => {
 						{/* Контент */}
 						<div className="p-6 md:p-8">
 							{/* Заголовок */}
-							<div className="mb-8">
-								<h1 className="text-2xl md:text-3xl text-(--primary-color) font-bold font-mono">
-									&gt;_ Проекты!
-								</h1>
-								<div className="mt-2 font-mono text-sm text-gray-500">
-									<span className="text-(--primary-color)">$</span> ls -la
-									/projects --details
-								</div>
-							</div>
+							<TypingHeader text=">_ Мои проекты" subtitle="cat projects.md --verbose" />
 							{/* Описание */}
 							<div className="mb-8">
 								<div className="flex items-center gap-2 text-(--primary-color) mb-2">

@@ -5,31 +5,13 @@ import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { VStack } from '@/src/shared/ui/Stack';
 import { TerminalLine } from '@/src/shared/ui/TerminalLine';
+import { TypingHeader } from '@/src/shared/ui/TypingHeader';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export const ComputersView = () => {
-    const [typedText, setTypedText] = useState('');
-    const [showCursor, setShowCursor] = useState(true);
-    const fullText = '>_ Компьютеры!';
-
-    useEffect(() => {
-        let i = 0;
-        const interval = setInterval(() => {
-            setTypedText(fullText.slice(0, i));
-            i++;
-            if (i > fullText.length) clearInterval(interval);
-        }, 80);
-        return () => clearInterval(interval);
-    }, []);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setShowCursor(prev => !prev);
-        }, 500);
-        return () => clearInterval(interval);
-    }, []);
+    const fullText = '>_ Путь к веб-разработке!';
 
     return (
         <div className="relative bg-black">
@@ -61,15 +43,7 @@ export const ComputersView = () => {
                         {/* Контент */}
                         <div className="p-6 md:p-8">
                             {/* Заголовок */}
-                            <div className="mb-8">
-                                <h1 className="text-2xl md:text-3xl text-(--primary-color) font-bold font-mono">
-                                    {typedText}
-                                    <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}>█</span>
-                                </h1>
-                                <div className="mt-2 font-mono text-sm text-gray-500">
-                                    <span className="text-(--primary-color)">$</span> cat computers.md --verbose
-                                </div>
-                            </div>
+                            <TypingHeader text={fullText} subtitle="cat my-way.md --verbose" />
 
                             {/* Терминальная строка с кодом */}
                             <div className="mb-6 overflow-x-auto">
