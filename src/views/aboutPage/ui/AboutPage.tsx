@@ -6,6 +6,7 @@ import { Container } from '@/src/shared/ui/Container';
 import { HStack, VStack } from '@/src/shared/ui/Stack';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
+import { TerminalLine } from '@/src/shared/ui/TerminalLine';
 
 export function AboutView() {
 	const [typedText, setTypedText] = useState('');
@@ -266,11 +267,7 @@ export function AboutView() {
 					</div>
 
 					{/* Терминальная строка */}
-					<div className="w-full text-center">
-						<span className="font-mono text-xs text-gray-600 select-none animate-pulse">
-							⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ READY ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-						</span>
-					</div>
+					<TerminalLine text="READY" />
 				</VStack>
 			</Container>
 		</div>

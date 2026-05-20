@@ -6,6 +6,7 @@ import { VStack } from '@/src/shared/ui/Stack';
 import { ContactForm } from '@/src/shared/ui/ContactForm/ContactForm';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect';
+import { TerminalLine } from '@/src/shared/ui/TerminalLine';
 
 interface Project {
 	id: number;
@@ -195,11 +196,7 @@ export const ProjectsView = () => {
 					</div>
 
 					{/* Терминальная строка */}
-					<div className="mt-6 font-mono text-xs text-center text-gray-600 select-none">
-						<span className="animate-pulse">
-							⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ DEPLOY:SUCCESS ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-						</span>
-					</div>
+					<TerminalLine text="DEPLOY:SUCCESS" />
 				</Container>
 			</div>
 		</div>

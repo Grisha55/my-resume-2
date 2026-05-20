@@ -4,6 +4,7 @@ import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { VStack } from '@/src/shared/ui/Stack';
+import { TerminalLine } from '@/src/shared/ui/TerminalLine';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -191,11 +192,7 @@ export const ComputersView = () => {
                     </div>
 
                     {/* Терминальная строка */}
-                    <div className="mt-6 font-mono text-xs text-center text-gray-600 select-none">
-                        <span className="animate-pulse">
-                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ SYSTEM:ACTIVE ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-                        </span>
-                    </div>
+                    <TerminalLine text="SYSTEM:ACTIVE" />
                 </Container>
             </div>
         </div>
