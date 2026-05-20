@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Container } from '@/src/shared/ui/Container';
 import { HStack, VStack } from '@/src/shared/ui/Stack';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
+import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 
 export function AboutView() {
 	const [typedText, setTypedText] = useState('');
@@ -37,9 +38,7 @@ export function AboutView() {
 			<HackerBackground />
 
 			{/* Эффект сканирования */}
-			<div className="absolute inset-0 overflow-hidden pointer-events-none">
-				<div className="absolute top-0 left-0 right-0 h-0.5 bg-(--primary-color) shadow-[0_0_10px_var(--primary-color)] animate-scan" />
-			</div>
+			<ScanEffect speed="slow" />
 
 			<Container maxWidth="lg">
 				<VStack
