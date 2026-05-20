@@ -4,6 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import multer from 'multer';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
 
 // Получаем __dirname в ES модулях
 const __filename = fileURLToPath(import.meta.url);
@@ -11,6 +12,15 @@ const __dirname = path.dirname(__filename);
 
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
+
+// Настройка CORS - разрешаем запросы с localhost:3000
+server.use(cors({
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 const middlewares = jsonServer.defaults({
   static: path.join(__dirname, 'public')
 });

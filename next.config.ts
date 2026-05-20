@@ -5,6 +5,12 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+
+    images: {
+    remotePatterns: [
+      new URL('http://localhost:8000/uploads/**'), // Для изображений с сервера
+    ],
+  },
   
   turbopack: {
     rules: {
