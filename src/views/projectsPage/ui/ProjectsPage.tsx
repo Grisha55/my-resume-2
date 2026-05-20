@@ -5,6 +5,7 @@ import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect';
 import { VStack } from '@/src/shared/ui/Stack';
+import { StatusBar } from '@/src/shared/ui/StatusBar/StatusBar';
 import { TerminalWindow } from '@/src/shared/ui/TerminalWindow/TerminalWindow';
 
 interface Project {
@@ -158,17 +159,20 @@ export const ProjectsView = () => {
 								successMessage="✓ Сообщение отправлено!"
 								errorMessage="✗ Ошибка отправки. Попробуйте позже."
 							/>
-							Ы{/* Статус бар */}
-							<div className="mt-8 pt-3 border-t border-(--primary-color)/30 text-xs text-gray-500 font-mono flex flex-wrap justify-between gap-2">
-								<div className="flex gap-4">
-									<span>user@resume:~/projects$</span>
-									<span className="text-(--primary-color)">● ONLINE</span>
-								</div>
-								<div className="flex gap-2">
-									<span>📦 projects: {projects.length}</span>
-									<span>🐙 github: connected</span>
-								</div>
-							</div>
+							{/* Статус бар */}
+							<StatusBar
+								user="user@resume"
+								path="~/projects"
+								rightItems={[
+									{ icon: '📦', label: 'projects', value: projects.length },
+									{
+										icon: '🐙',
+										label: 'github',
+										value: 'connected',
+										color: 'text-[var(--primary-color)]'
+									}
+								]}
+							/>
 						</div>
 					</TerminalWindow>
 				</Container>

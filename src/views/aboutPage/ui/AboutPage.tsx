@@ -4,6 +4,7 @@ import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { HStack, VStack } from '@/src/shared/ui/Stack';
+import { StatusBar } from '@/src/shared/ui/StatusBar/StatusBar';
 import { TerminalWindow } from '@/src/shared/ui/TerminalWindow';
 import { TypingHeader } from '@/src/shared/ui/TypingHeader';
 import Link from 'next/link';
@@ -28,8 +29,12 @@ export function AboutView() {
 					className="w-full"
 				>
 					{/* Терминальное окно */}
-					<TerminalWindow title="root@resume:~/about$" subtitle="cat about-me.txt --verbose" headerText={fullText} withPadding={false}>
-
+					<TerminalWindow
+						title="root@resume:~/about$"
+						subtitle="cat about-me.txt --verbose"
+						headerText={fullText}
+						withPadding={false}
+					>
 						{/* Контент */}
 						<VStack
 							gap="24"
@@ -154,9 +159,7 @@ export function AboutView() {
 										style={{ paddingLeft: '24px', paddingRight: '24px' }}
 									>
 										<span className="text-2xl">🐙</span>
-										<VStack
-											className="flex-1"
-										>
+										<VStack className="flex-1">
 											<span className="text-(--primary-color) font-bold font-mono text-sm text-center">
 												[ GitHub ]
 											</span>
@@ -172,33 +175,14 @@ export function AboutView() {
 							</div>
 
 							{/* Статус бар */}
-							<div
-								className="flex gap-6 justify-between items-center pt-4 border-t border-(--primary-color)/30 w-full flex-wrap"
-								style={{ paddingTop: '10px' }}
-							>
-								<HStack
-									gap="16"
-									align="center"
-								>
-									<span className="font-mono text-xs text-gray-500">
-										user@resume:~/about$
-									</span>
-									<span className="text-(--primary-color) text-xs font-mono">
-										● ONLINE
-									</span>
-								</HStack>
-								<HStack
-									gap="8"
-									align="center"
-								>
-									<span className="font-mono text-xs text-gray-500">
-										📁 sections: 6
-									</span>
-									<span className="font-mono text-xs text-gray-500">
-										📊 coverage: 100%
-									</span>
-								</HStack>
-							</div>
+							<StatusBar
+								user="user@resume"
+								path="~/about"
+								rightItems={[
+									{ icon: '📁', label: 'sections', value: 6 },
+									{ icon: '📊', label: 'coverage', value: '100%' }
+								]}
+							/>
 						</VStack>
 					</TerminalWindow>
 				</VStack>
