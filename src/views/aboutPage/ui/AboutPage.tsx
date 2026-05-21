@@ -6,7 +6,6 @@ import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { HStack, VStack } from '@/src/shared/ui/Stack';
 import { StatusBar } from '@/src/shared/ui/StatusBar/StatusBar';
 import { TerminalWindow } from '@/src/shared/ui/TerminalWindow';
-import { TypingHeader } from '@/src/shared/ui/TypingHeader';
 import Link from 'next/link';
 
 export function AboutView() {
