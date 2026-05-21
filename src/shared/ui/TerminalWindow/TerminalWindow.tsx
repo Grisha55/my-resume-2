@@ -40,12 +40,12 @@ export const TerminalWindow = ({
 }: TerminalWindowProps) => {
     return (
         <div className={classNames(
-            'bg-black/90 border-2 border-(--primary-color) rounded-lg shadow-[0_0_30px_rgba(0,255,65,0.3)] backdrop-blur-sm overflow-hidden w-full',
+            'border-2 border-(--primary-color) rounded-lg shadow-[0_0_30px_rgba(0,255,65,0.3)] backdrop-blur-sm overflow-hidden w-full bg-(--card-bg)',
             {},
             [className || '']
         )} style={{ paddingLeft: '20px', paddingRight: '20px', paddingTop: '10px' }}>
             {/* Заголовок окна с кнопками */}
-            <div className="flex items-center justify-between px-4 py-2 border-b border-(--primary-color)/30 bg-black/50">
+            <div className="flex items-center justify-between px-4 py-2 border-b border-(--primary-color)/30 bg-(--dark-bg-redesigned)/50">
                 <div className="flex gap-2">
                     <button 
                         onClick={onClose}

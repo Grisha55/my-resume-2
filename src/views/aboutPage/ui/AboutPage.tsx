@@ -22,7 +22,7 @@ export function AboutView() {
 
     return (
         <div
-            className="relative min-h-screen pb-16 bg-black"
+            className="relative min-h-screen pb-16"
             style={{ paddingTop: '100px' }}
         >
             {/* Хакерский фон */}

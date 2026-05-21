@@ -40,7 +40,7 @@ export function NotFoundView() {
 	}, [router]);
 
 	return (
-		<div className="relative min-h-screen overflow-hidden bg-black">
+		<div className="relative min-h-screen overflow-hidden">
 			<HackerBackground />
 
 			{/* Терминальное окно */}

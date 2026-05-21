@@ -35,7 +35,7 @@ export const BooksView = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen pt-20 bg-black">
+            <div className="min-h-screen pt-20">
                 <Container>
                     <div className="text-center text-gray-400 animate-pulse">Loading library...</div>
                 </Container>
@@ -57,7 +57,7 @@ export const BooksView = () => {
     }
 
     return (
-        <div className="relative min-h-screen pt-20 pb-16 bg-black" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+        <div className="relative min-h-screen pt-20 pb-16" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
             <HackerBackground />
             
             <Container maxWidth="lg">
