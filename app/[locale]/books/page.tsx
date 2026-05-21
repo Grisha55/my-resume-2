@@ -1,7 +1,9 @@
+import { BooksView } from '@/src/views/booksPage';
+
 export default function BooksPage() {
 	return (
-		<div>
-			<h1>Книги</h1>
+		<div className="mt-20">
+			<BooksView />
 		</div>
 	);
 }
