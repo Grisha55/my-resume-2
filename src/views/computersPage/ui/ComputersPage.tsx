@@ -12,7 +12,7 @@ export const ComputersView = () => {
     const fullText = '>_ Моя ежедневная рутина.';
 
     return (
-        <div className="relative bg-black">
+        <div className="relative">
             {/* Хакерский фон */}
             <HackerBackground />
 

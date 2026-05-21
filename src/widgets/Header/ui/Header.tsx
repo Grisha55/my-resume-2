@@ -1,17 +1,15 @@
 'use client';
 
-import { HStack, VStack } from '@/src/shared/ui/Stack';
+import { LangSwitcher } from '@/src/features/LangSwitcher';
+import { ThemeSwitcher } from '@/src/features/ThemeSwitcher';
+import PhotoIcon from '@/src/shared/assets/images/photo.jpg';
 import { ToggleFeatures } from '@/src/shared/lib/features/components/ToggleFeatures/ToggleFeatures';
 import { NavLink } from '@/src/shared/ui/NavLink';
+import { HStack, VStack } from '@/src/shared/ui/Stack';
 import { Text } from '@/src/shared/ui/Text';
-import { ThemeSwitcher } from '@/src/features/ThemeSwitcher';
-import { LangSwitcher } from '@/src/features/LangSwitcher';
-import PhotoIcon from '@/src/shared/assets/images/photo.jpg';
-import React, { memo, useCallback, useEffect, useState } from 'react';
-import Link from 'next/link';
-import { AppImage } from '@/src/shared/ui/AppImage';
-import { Skeleton } from '@/src/shared/ui/Skeleton';
 import Image from 'next/image';
+import Link from 'next/link';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 
 interface HeaderProps {
 	className?: string;
@@ -90,11 +88,15 @@ export const Header = memo(
 		}
 
 		const headerStyles = `
-        fixed top-0 left-0 right-0 z-50
-        transition-all duration-300
-        ${scrolled ? 'bg-[var(--bg-redesigned)] shadow-lg backdrop-blur-sm' : 'bg-[var(--bg-redesigned)]/80 backdrop-blur-sm'}
-        ${className}
-    `;
+    fixed top-0 left-0 right-0 z-50
+    transition-all duration-300
+    ${
+			scrolled
+				? 'bg-[var(--header-bg)]/80 shadow-[0_4px_20px_rgba(0,255,65,0.15)] backdrop-blur-xl border-b border-[var(--primary-color)]/40'
+				: 'bg-[var(--header-bg)]/70 backdrop-blur-md border-b border-[var(--primary-color)]/20'
+		}
+    ${className}
+`;
 
 		const RedesignedHeader = () => (
 			<header className={headerStyles}>

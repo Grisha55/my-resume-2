@@ -1,9 +1,10 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { classNames, Mods } from '@/src/shared/lib/classNames/classNames';
+import { classNames } from '@/src/shared/lib/classNames/classNames';
 import { useTheme } from '@/src/shared/lib/hooks/useTheme/useTheme';
 import { useModal } from '@/src/shared/hooks/useModal/useModal';
 import { toggleFeatures } from '@/src/shared/lib/features/lib/toggleFeatures';
+import { Theme } from '../../consts/theme';
 
 interface ModalProps {
     className?: string;
@@ -25,7 +26,6 @@ export const Modal = (props: ModalProps) => {
         onClose,
         lazy,
         closeOnOverlayClick = true,
-        closeOnEscape = true,
     } = props;
 
     const [mounted, setMounted] = useState(false);
@@ -38,7 +38,7 @@ export const Modal = (props: ModalProps) => {
     });
 
     useEffect(() => {
-		// eslint-disable-next-line
+        // eslint-disable-next-line
         setMounted(true);
     }, []);
 
@@ -56,11 +56,6 @@ export const Modal = (props: ModalProps) => {
         return null;
     }
 
-    const mods: Mods = {
-        'pointer-events-auto': isOpen,
-        'pointer-events-none': isClosing,
-    };
-
     const modalContainerStyles = `
         fixed inset-0 z-50
         flex items-center justify-center
@@ -69,21 +64,27 @@ export const Modal = (props: ModalProps) => {
         ${isOpen ? 'visible' : 'invisible'}
     `;
 
+    // Определяем цвет оверлея в зависимости от темы
+    const isDarkTheme = theme === Theme.DARK || document.body.classList.contains('app_dark_theme');
+    const overlayColor = isDarkTheme ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.3)';
+    
     const overlayStyles = `
         absolute inset-0
-        bg-black/60 dark:bg-black/80
         transition-all duration-300
         ${isOpen ? 'opacity-100' : 'opacity-0'}
     `;
 
     // Разные стили для новой и старой версии дизайна
     const getContentStyles = () => {
+        const cardBg = isDarkTheme ? '#0a0a0a' : '#ffffff';
+        const accentColor = isDarkTheme ? 'rgba(0,255,65,0.2)' : 'rgba(0,128,0,0.15)';
+        
         if (toggleFeatures({ name: 'isAppRedesigned', on: () => true, off: () => false })) {
             // Редизайн версия
             return `
-                relative bg-[var(--bg-redesigned)]
+                relative bg-[${cardBg}]
                 rounded-2xl p-6 max-w-md w-full mx-4
-                shadow-[0_0_30px_rgba(0,255,65,0.2)]
+                shadow-[0_0_30px_${accentColor}]
                 border border-[var(--accent-redesigned)]/30
                 transform transition-all duration-300 ease-out
                 ${isOpen ? 'scale-100 translate-y-0 opacity-100' : 'scale-95 -translate-y-4 opacity-0'}
@@ -92,7 +93,7 @@ export const Modal = (props: ModalProps) => {
         } else {
             // Старая версия
             return `
-                relative bg-[var(--bg-color)]
+                relative bg-[${cardBg}]
                 rounded-lg p-6 max-w-md w-full mx-4
                 shadow-xl
                 transform transition-all duration-300 ease-out
@@ -121,7 +122,8 @@ export const Modal = (props: ModalProps) => {
         >
             {/* Overlay */}
             <div 
-                className={overlayStyles} 
+                className={overlayStyles}
+                style={{ backgroundColor: overlayColor }}
                 onClick={handleOverlayClick}
                 data-testid="modal.overlay"
             />

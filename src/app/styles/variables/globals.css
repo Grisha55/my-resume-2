@@ -61,8 +61,10 @@ html {
     --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
 }
 
-/* app/globals.css */
-/* Добавь для красивого фокуса на кнопках */
+body {
+    background-color: var(--bg-redesigned);
+}
+
 button:focus-visible {
     --ring-color: var(--accent-redesigned);
     --ring-offset-color: var(--bg-redesigned);

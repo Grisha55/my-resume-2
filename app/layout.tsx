@@ -97,7 +97,7 @@ export default async function RootLayout({
 		>
 			<body
 				id="root"
-				className="bg-black"
+				style={{ backgroundColor: 'var(--bg-redesigned)' }}
 			>
 				<NextIntlClientProvider messages={messages}>
 					<Providers>
