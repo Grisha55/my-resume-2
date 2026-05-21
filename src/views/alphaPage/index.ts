@@ -1,0 +1,1 @@
+export { AlphaView } from './ui/AlphaPage';
