@@ -1,4 +1,3 @@
-// components/HackerModal.tsx
 import { Modal } from '@/src/shared/ui/Modal/Modal';
 import { ReactNode } from 'react';
 
@@ -10,11 +9,30 @@ interface HackerModalProps {
     lazy?: boolean;
     closeOnOverlayClick?: boolean;
     closeOnEscape?: boolean;
-	title?: string;
-	content?: string;
+    title?: string;
+    content?: string;
+    // Новые пропсы для кнопок
+    showButtons?: boolean;
+    confirmText?: string;
+    cancelText?: string;
+    onConfirm?: () => void;
 }
 
-export const HackerModal = ({ isOpen, onClose, title, content }: HackerModalProps) => {
+export const HackerModal = ({ 
+    isOpen, 
+    onClose, 
+    title, 
+    content,
+    showButtons = false,
+    confirmText = 'Подтвердить',
+    cancelText = 'Отмена',
+    onConfirm
+}: HackerModalProps) => {
+    const handleConfirm = () => {
+        onConfirm?.();
+        onClose?.();
+    };
+
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <div className="space-y-4">
@@ -30,6 +48,24 @@ export const HackerModal = ({ isOpen, onClose, title, content }: HackerModalProp
                 <div className="text-(--text-redesigned) font-mono text-sm space-y-2">
                     {content}
                 </div>
+                
+                {/* Кнопки */}
+                {showButtons && (
+                    <div className="flex gap-3 pt-2">
+                        <button
+                            onClick={handleConfirm}
+                            className="flex-1 py-2 bg-(--primary-color) text-black rounded-lg font-mono text-sm hover:opacity-90 transition"
+                        >
+                            $&gt; {confirmText}
+                        </button>
+                        <button
+                            onClick={onClose}
+                            className="flex-1 py-2 border border-(--primary-color) text-(--primary-color) rounded-lg font-mono text-sm hover:bg-(--primary-color)/10 transition"
+                        >
+                            $&gt; {cancelText}
+                        </button>
+                    </div>
+                )}
                 
                 {/* Терминальная строка ввода */}
                 <div className="flex items-center gap-2 pt-4 border-t border-(--primary-color)/30">
