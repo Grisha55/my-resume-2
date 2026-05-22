@@ -1,15 +1,29 @@
 'use client';
 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
 import { VStack } from '@/src/shared/ui/Stack';
 import { TerminalWindow } from '@/src/shared/ui/TerminalWindow';
+import { HackerModal } from '@/src/shared/ui/Modal/HackerModal';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export const ComputersView = () => {
     const fullText = '>_ Моя ежедневная рутина.';
+    const router = useRouter();
+    const [isBooksModalOpen, setIsBooksModalOpen] = useState(false);
+
+    const handleBooksClick = () => {
+        setIsBooksModalOpen(true);
+    };
+
+    const goToBooks = () => {
+        setIsBooksModalOpen(false);
+        router.push('/books');
+    };
 
     return (
         <div className="relative">
@@ -118,6 +132,22 @@ export const ComputersView = () => {
                                 </div>
                             </div>
 
+                            {/* Ссылка на книги */}
+                            <div className="mt-8 pt-6 border-t border-(--primary-color)/30">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-(--primary-color) font-mono text-sm">$&gt;</span>
+                                    <span className="font-mono text-sm text-gray-400">
+                                        Кстати, я ещё и читаю много книг. 
+                                        <button
+                                            onClick={handleBooksClick}
+                                            className="ml-2 text-(--primary-color) hover:text-(--accent-redesigned) transition-colors underline decoration-dotted underline-offset-4"
+                                        >
+                                            [Моя библиотека]
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
                             {/* ASCII Art */}
                             <div className="mt-8 overflow-x-auto text-center">
                                 <pre className="text-(--primary-color) text-xs opacity-40 select-none whitespace-pre">
@@ -149,6 +179,18 @@ export const ComputersView = () => {
                     </TerminalWindow>
                 </Container>
             </div>
+
+            {/* Модальное окно для книг */}
+            <HackerModal
+                isOpen={isBooksModalOpen}
+                onClose={() => setIsBooksModalOpen(false)}
+                title="BOOKS_SYSTEM"
+                content="📚 Перейти в библиотеку и посмотреть мои любимые книги?"
+                showButtons={true}
+                confirmText="Перейти"
+                cancelText="Отмена"
+                onConfirm={goToBooks}
+            />
         </div>
     );
 };
