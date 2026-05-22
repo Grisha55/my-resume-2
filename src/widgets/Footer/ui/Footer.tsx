@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import githubIcon from '@/src/shared/assets/images/github.png';
+import { Modal } from '@/src/shared/ui/Modal';
+import { Text } from '@/src/shared/ui/Text';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Text } from '@/src/shared/ui/Text';
-import { Modal } from '@/src/shared/ui/Modal';
-import githubIcon from '@/src/shared/assets/images/github.png';
+import { useState } from 'react';
 
 // Компонент модального окна для условий
 const TermsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => (
@@ -26,7 +26,7 @@ const TermsModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                 align="center"
             />
 
-            <div className="space-y-4 mt-4">
+            <div className="mt-4 space-y-4">
                 <div>
                     <Text
                         title="1. Вы уже согласились"
@@ -119,7 +119,7 @@ const PrivacyModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                 align="center"
             />
 
-            <div className="space-y-4 mt-4">
+            <div className="mt-4 space-y-4">
                 <div>
                     <Text
                         title="1. Мы не читаем ваши мысли"
@@ -200,77 +200,64 @@ export const Footer = () => {
     const pathname = usePathname();
     const currentYear = new Date().getFullYear();
 
-    // Не показываем footer на некоторых страницах (опционально)
     const hideFooter = pathname === '/admin' || pathname === '/login';
     if (hideFooter) return null;
 
     return (
         <>
-            <footer className="relative border-t border-(--border-light) py-8 mt-auto bg-(--bg-redesigned)">
-                {/* Градиентная линия сверху */}
+            <footer className="relative border-t border-(--primary-color)/20 py-10 mt-auto bg-(--card-bg) flex items-center justify-center">
                 <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-(--primary-color) to-transparent" />
                 
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-col items-center gap-6">
-                        {/* Основная навигация */}
-                        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm">
-                            <Link
-                                href="#top"
-                                className="text-(--text-secondary) hover:text-(--primary-color) transition-colors duration-200"
-                            >
-                                ↑ Back to top
-                            </Link>
+                <div className="flex flex-col max-w-6xl gap-2 px-4 mx-auto sm:px-6 lg:px-8">
+                    {/* Основная навигация - центрируем */}
+                    <div className="flex flex-wrap items-center justify-center mb-6 gap-x-8 gap-y-4">
+                        <Link
+                            href="#top"
+                            className="text-sm font-mono text-(--inverted-bg-color) hover:text-(--primary-color) transition-colors duration-200"
+                        >
+                            ↑ Back to top
+                        </Link>
 
-                            <button
-                                onClick={() => setIsTermsOpen(true)}
-                                className="text-(--text-secondary) hover:text-(--primary-color) transition-colors duration-200 cursor-pointer"
-                            >
-                                Terms of Use
-                            </button>
+                        <button
+                            onClick={() => setIsTermsOpen(true)}
+                            className="text-sm font-mono text-(--inverted-bg-color) hover:text-(--primary-color) transition-colors duration-200 cursor-pointer"
+                        >
+                            Terms of Use
+                        </button>
 
-                            <button
-                                onClick={() => setIsPrivacyOpen(true)}
-                                className="text-(--text-secondary) hover:text-(--primary-color) transition-colors duration-200 cursor-pointer"
-                            >
-                                Privacy Policy
-                            </button>
+                        <button
+                            onClick={() => setIsPrivacyOpen(true)}
+                            className="text-sm font-mono text-(--inverted-bg-color) hover:text-(--primary-color) transition-colors duration-200 cursor-pointer"
+                        >
+                            Privacy Policy
+                        </button>
 
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://github.com/Grisha55"
-                                className="flex items-center gap-2 text-(--text-secondary) hover:text-(--primary-color) transition-colors duration-200"
-                            >
-                                <Image
-                                    src={githubIcon}
-                                    alt="GitHub"
-                                    width={20}
-                                    height={20}
-                                    className="filter brightness-0 dark:invert transition-all duration-200 group-hover:scale-110"
-                                />
-                                <span>GitHub</span>
-                            </a>
-                        </div>
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://github.com/Grisha55"
+                            className="flex items-center gap-2 text-sm font-mono text-(--inverted-bg-color) hover:text-(--primary-color) transition-colors duration-200"
+                        >
+                            <Image
+                                src={githubIcon}
+                                alt="GitHub"
+                                width={18}
+                                height={18}
+                                className="transition-all duration-200 brightness-0"
+                            />
+                            <span>GitHub</span>
+                        </a>
+                    </div>
 
-                        {/* Копирайт */}
+                    {/* Копирайт - по центру */}
+                    <div className="text-center">
                         <Text
-                            text={`© ${currentYear} Gregory custom resume. Built with Next.js & Tailwind CSS`}
+                            text={`© ${currentYear} Gregory. Built with Next.js & Tailwind CSS`}
                             size="s"
                             variant="accent"
                             align="center"
-                            className="font-mono text-xs"
+                            className="font-mono text-xs opacity-70"
                         />
-
-                        {/* Хакерский ASCII арт (опционально) */}
-                        <pre className="text-[8px] text-(--hint-redesigned) opacity-30 select-none">
-                            {`
-                            ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-                            ░░░░░░░░░░░░█▀▀░░█░░░░█▀▀░░█▀█░░░░░░░░░░░░
-                            ░░░░░░░░░░░░█▀▀░░█░░░░█▀▀░░█░█░░░░░░░░░░░░
-                            ░░░░░░░░░░░░▀░░░░▀▀▀░░▀░░░░▀░▀░░░░░░░░░░░░
-                            ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-                            `}
-                        </pre>
                     </div>
                 </div>
             </footer>
