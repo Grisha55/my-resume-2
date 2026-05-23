@@ -1,0 +1,12 @@
+{
+    "not_found_title": ">_ ERROR_404: PAGE_NOT_FOUND.exe",
+    "not_found_error": "Ошибка: Запрашиваемый ресурс не найден в системе.",
+    "not_found_possible_causes": "Возможные причины",
+    "not_found_cause_moved": "Страница была перемещена или удалена",
+    "not_found_cause_wrong_url": "Неверный URL в запросе",
+    "not_found_cause_access_denied": "Недостаточно прав доступа",
+    "not_found_security_warning": "Система безопасности: Ваш IP адрес был залогирован",
+    "not_found_redirect_command": "automatic_redirect.exe --countdown=",
+    "not_found_back_home": "ВЕРНУТЬСЯ",
+    "not_found_go_back": "НАЗАД"
+}

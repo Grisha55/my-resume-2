@@ -19,12 +19,17 @@ export const LangSwitcher = ({
 }: LangSwitcherProps) => {
   const pathname = usePathname();
   const router = useRouter();
-  const locale = useLocale(); // Используем useLocale() вместо useT()
+  const locale = useLocale();
 
   const switchLocale = (newLocale: string) => {
     // Заменяем текущий язык в URL на новый
     const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
+    
+    // Вариант 1: Используем router.push с последующей перезагрузкой
     router.push(newPathname);
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   const isRu = locale === 'ru';

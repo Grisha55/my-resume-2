@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { ScanEffect } from '@/src/shared/ui/ScanEffect/ScanEffect';
@@ -12,9 +13,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const ComputersView = () => {
-    const fullText = '>_ Моя ежедневная рутина.';
     const router = useRouter();
     const [isBooksModalOpen, setIsBooksModalOpen] = useState(false);
+    const t = useTranslations();
+
+    const fullText = t('computers_header');
 
     const handleBooksClick = () => {
         setIsBooksModalOpen(true);
@@ -42,7 +45,7 @@ export const ComputersView = () => {
                         {/* Контент */}
                         <div className="p-6 md:p-8">
 
-                            {/* Терминальная строка с кодом */}
+                            {/* Терминальная строка с кодом - оставляем без перевода (ASCII арт) */}
                             <div className="mb-6 overflow-x-auto">
                                 <pre className="text-(--primary-color) text-xs font-mono opacity-60 whitespace-pre">
 {`╔══════════════════════════════════════════════════════════╗
@@ -63,47 +66,47 @@ export const ComputersView = () => {
                                 <div className="group">
                                     <div className="flex items-center gap-2 text-(--primary-color) mb-2">
                                         <span className="font-mono text-sm">$&gt;</span>
-                                        <span className="font-mono text-sm opacity-70"># Мой рабочий процесс</span>
+                                        <span className="font-mono text-sm opacity-70">{t('work_process_title')}</span>
                                     </div>
                                     <p className="pl-4 border-l-2 border-(--primary-color)/30 hover:border-(--primary-color) transition-all text-gray-300 font-mono text-sm leading-relaxed">
-                                        Мой рабочий день преимущественно состоит из написания кода. Этот процесс представляет собой непрерывный цикл решения задач, поиска оптимальных решений и, конечно, отладки, которая порой занимает больше времени, чем предполагалось изначально.
+                                        {t('work_process_text')}
                                     </p>
                                     <p className="pl-4 mt-3 font-mono text-sm text-gray-400">
-                                        <span className="text-(--primary-color)">$&gt;</span> Вы можете{' '}
+                                        <span className="text-(--primary-color)">$&gt;</span> {t('work_process_link_text')}{' '}
                                         <Link href="/projects" className="text-(--primary-color) hover:text-(--accent-redesigned) transition-colors">
-                                            [Ознакомиться с моими работами]
+                                            {t('work_process_link')}
                                         </Link>
-                                        , если вам интересно.
+                                        {t('work_process_link_end')}
                                     </p>
                                 </div>
 
                                 <div className="group">
                                     <div className="flex items-center gap-2 text-(--primary-color) mb-2">
                                         <span className="font-mono text-sm">$&gt;</span>
-                                        <span className="font-mono text-sm opacity-70"># Технологический стек</span>
+                                        <span className="font-mono text-sm opacity-70">{t('tech_stack_title')}</span>
                                     </div>
                                     <p className="pl-4 border-l-2 border-(--primary-color)/30 hover:border-(--primary-color) transition-all text-gray-300 font-mono text-sm leading-relaxed">
-                                        В качестве основных инструментов я использую JavaScript и React, к которым испытываю глубокую профессиональную симпатию за их гибкость и возможности. Параллельно я уделяю время на изучение &quot;Computer Science&quot; и алгоритмов для использования самых оптимальных и быстрых решений.
+                                        {t('tech_stack_text')}
                                     </p>
                                 </div>
 
                                 <div className="group">
                                     <div className="flex items-center gap-2 text-(--primary-color) mb-2">
                                         <span className="font-mono text-sm">$&gt;</span>
-                                        <span className="font-mono text-sm opacity-70"># Фокус на веб-разработку</span>
+                                        <span className="font-mono text-sm opacity-70">{t('web_focus_title')}</span>
                                     </div>
                                     <p className="pl-4 border-l-2 border-(--primary-color)/30 hover:border-(--primary-color) transition-all text-gray-300 font-mono text-sm leading-relaxed">
-                                        Основной фокус моей деятельности, однако, смещен в сторону веб-разработки. Это направление требует постоянного изучения нового и предлагает постоянный вызов самому себе и своим навыкам, что и делает его столь привлекательным для меня, даже несмотря на мою давнюю привязанность к экосистеме Apple.
+                                        {t('web_focus_text')}
                                     </p>
                                 </div>
 
                                 <div className="group">
                                     <div className="flex items-center gap-2 text-(--primary-color) mb-2">
                                         <span className="font-mono text-sm">$&gt;</span>
-                                        <span className="font-mono text-sm opacity-70"># Сообщество</span>
+                                        <span className="font-mono text-sm opacity-70">{t('community_title')}</span>
                                     </div>
                                     <p className="pl-4 border-l-2 border-(--primary-color)/30 hover:border-(--primary-color) transition-all text-gray-300 font-mono text-sm leading-relaxed">
-                                        В связи с этим я ощущаю потребность вступить в профессиональное сообщество единомышленников. Обмен опытом и нетворкинг с коллегами, которые разделяют схожие интересы, представляется крайне ценным как для личного, так и для карьерного роста. Надеюсь это когда-нибудь произойдет и совместным трудом мы построим новый &quot;Мир&quot;, создав свою экосистему.
+                                        {t('community_text')}
                                     </p>
                                 </div>
                             </VStack>
@@ -112,14 +115,14 @@ export const ComputersView = () => {
                             <div className="mt-12 pt-6 border-t border-(--primary-color)/30" style={{ paddingTop: '24px' }}>
                                 <div className="flex items-center gap-2 mb-4">
                                     <span className="text-(--primary-color) font-mono text-sm">$&gt;</span>
-                                    <span className="font-mono text-sm text-gray-400">12-летний я увидел свой первый ноутбук:</span>
+                                    <span className="font-mono text-sm text-gray-400">{t('first_laptop_text')}</span>
                                 </div>
 
                                 <div className="relative max-w-md mx-auto group">
                                     <div className="relative rounded-lg overflow-hidden border border-(--primary-color)/30 hover:border-(--primary-color) transition-all duration-300">
                                         <Image
                                             src="/assets/computer.jpg"
-                                            alt="Первый ноутбук"
+                                            alt={t('first_laptop_alt')}
                                             width={400}
                                             height={250}
                                             className="object-cover w-full h-auto"
@@ -137,18 +140,18 @@ export const ComputersView = () => {
                                 <div className="flex items-center gap-2">
                                     <span className="text-(--primary-color) font-mono text-sm">$&gt;</span>
                                     <span className="font-mono text-sm text-gray-400">
-                                        Кстати, я ещё и читаю много книг. 
+                                        {t('books_promo_text')}
                                         <button
                                             onClick={handleBooksClick}
                                             className="ml-2 text-(--primary-color) hover:text-(--accent-redesigned) transition-colors underline decoration-dotted underline-offset-4"
                                         >
-                                            [Моя библиотека]
+                                            {t('books_promo_link')}
                                         </button>
                                     </span>
                                 </div>
                             </div>
 
-                            {/* ASCII Art */}
+                            {/* ASCII Art - оставляем без перевода */}
                             <div className="mt-8 overflow-x-auto text-center">
                                 <pre className="text-(--primary-color) text-xs opacity-40 select-none whitespace-pre">
 {`    ╔══════════════════════════════════╗
@@ -168,11 +171,11 @@ export const ComputersView = () => {
                             <div className="mt-8 pt-3 border-t border-(--primary-color)/30 text-xs text-gray-500 font-mono flex flex-wrap justify-between gap-2">
                                 <div className="flex gap-4">
                                     <span>user@resume:~/computers$</span>
-                                    <span className="text-(--primary-color)">● ONLINE</span>
+                                    <span className="text-(--primary-color)">● {t('online_status')}</span>
                                 </div>
                                 <div className="flex gap-2">
-                                    <span>📁 stack: JS/React/Next</span>
-                                    <span>🖥️ status: coding</span>
+                                    <span>📁 stack: {t('tech_stack_label')}</span>
+                                    <span>🖥️ status: {t('coding_status')}</span>
                                 </div>
                             </div>
                         </div>
@@ -185,10 +188,10 @@ export const ComputersView = () => {
                 isOpen={isBooksModalOpen}
                 onClose={() => setIsBooksModalOpen(false)}
                 title="BOOKS_SYSTEM"
-                content="📚 Перейти в библиотеку и посмотреть мои любимые книги?"
+                content={t('books_modal_content')}
                 showButtons={true}
-                confirmText="Перейти"
-                cancelText="Отмена"
+                confirmText={t('books_modal_confirm')}
+                cancelText={t('books_modal_cancel')}
                 onConfirm={goToBooks}
             />
         </div>

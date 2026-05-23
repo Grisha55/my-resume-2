@@ -1,0 +1,32 @@
+{
+    "books_loading": "Загрузка библиотеки...",
+    "books_error": "Ошибка",
+    "books_error_hint": "Убедитесь, что JSON Server запущен на порту 8000",
+    "books_header": ">_ Другое! 📚",
+    
+    "rubiks_cube_title": "# Кубик-Рубика 🧩",
+    "rubiks_cube_text_start": "5 лет назад я научился собирать кубик-Рубика. Я даже участвовал в соревнованиях по собиранию его на скорость. Мой рекорд — ",
+    "rubiks_cube_record": "12 секунд",
+    "rubiks_cube_text_end": ". Сейчас я собираю кубик для того, чтобы размять руки перед рабочим днем.",
+    
+    "movies_title": "# Фильмы 🎬",
+    "movies_text": "Я обожаю смотреть фильмы — новинки. Мне всегда было интересно наблюдать за прогрессом кинематографа. Я люблю фильмы Netflix за их яркий спектр красок. Также из моих любимчиков есть такие фильмы, как:",
+    "movie_green_mile": "[«Зеленая миля»]",
+    "movie_woman_in_cabin": "[«Девушка из каюты №10»]",
+    "movie_carry_on": "[«Ручная кладь»]",
+    
+    "books_fav_title": "# Любимые книги 📖",
+    "books_fav_text": "Одни из моих самых любимых книг:",
+    
+    "books_ascii_collection": "BOOKS_COLLECTION",
+    "books_ascii_pages": "PAGES_READ",
+    "books_ascii_genre": "FAV_GENRE",
+    "books_ascii_genre_value": "SCI-FI",
+    
+    "stats_cube_record": "12 sec",
+    "stats_platform": "Netflix",
+    "stats_books_read": "infinite 🔄",
+    "stats_mood": "READING_MODE",
+    
+    "status_watched": "watched"
+}

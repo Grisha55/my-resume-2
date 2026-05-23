@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { ContactForm } from '@/src/shared/ui/ContactForm/ContactForm';
 import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
@@ -57,6 +58,8 @@ const projects: Project[] = [
 ];
 
 export const ProjectsView = () => {
+	const t = useTranslations();
+
 	return (
 		<div className="relative min-h-screen">
 			{/* Хакерский фон */}
@@ -75,7 +78,7 @@ export const ProjectsView = () => {
 					<TerminalWindow
 						title="root@resume:~/projects$"
 						subtitle="ls -la /projects --details"
-						headerText=">_ Мои проекты -> .... .."
+						headerText={t('projects_header')}
 						withPadding={false}
 					>
 						{/* Контент */}
@@ -85,12 +88,11 @@ export const ProjectsView = () => {
 								<div className="flex items-center gap-2 text-(--primary-color) mb-2">
 									<span className="font-mono text-sm">$&gt;</span>
 									<span className="font-mono text-sm opacity-70">
-										# Список проектов
+										{t('projects_list_title')}
 									</span>
 								</div>
 								<p className="pl-4 border-l-2 border-(--primary-color)/30 text-gray-300 font-mono text-sm leading-relaxed">
-									Вот неполный и неупорядоченный список проектов, над которыми я
-									работал:
+									{t('projects_list_description')}
 								</p>
 							</div>
 							{/* Список проектов */}
@@ -137,7 +139,7 @@ export const ProjectsView = () => {
 									</div>
 								))}
 							</VStack>
-							{/* ASCII Art - Терминал */}
+							{/* ASCII Art - Терминал - оставляем без перевода */}
 							<div className="my-8 text-center">
 								<pre className="text-(--primary-color) text-xs opacity-40 select-none">
 									{`    ╔══════════════════════════════════════════════════════╗
@@ -153,22 +155,22 @@ export const ProjectsView = () => {
 							</div>
 							{/* Форма связи */}
 							<ContactForm
-								title="Для связи со мной:"
+								title={t('contact_form_title')}
 								email="grishavinyar64@gmail.com"
-								submitText="Отправить"
-								successMessage="✓ Сообщение отправлено!"
-								errorMessage="✗ Ошибка отправки. Попробуйте позже."
+								submitText={t('contact_form_submit')}
+								successMessage={t('contact_form_success')}
+								errorMessage={t('contact_form_error')}
 							/>
 							{/* Статус бар */}
 							<StatusBar
 								user="user@resume"
 								path="~/projects"
 								rightItems={[
-									{ icon: '📦', label: 'projects', value: projects.length },
+									{ icon: '📦', label: t('projects_count'), value: projects.length },
 									{
 										icon: '🐙',
 										label: 'github',
-										value: 'connected',
+										value: t('github_status'),
 										color: 'text-[var(--primary-color)]'
 									}
 								]}
