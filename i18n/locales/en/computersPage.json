@@ -1,0 +1,32 @@
+{
+    "computers_header": ">_ My daily routine.",
+    
+    "work_process_title": "# My work process",
+    "work_process_text": "My workday mainly consists of writing code. This process is a continuous cycle of problem-solving, finding optimal solutions, and of course debugging, which sometimes takes longer than initially expected.",
+    "work_process_link_text": "You can",
+    "work_process_link": "[Check out my works]",
+    "work_process_link_end": ", if you're interested.",
+    
+    "tech_stack_title": "# Tech stack",
+    "tech_stack_text": "I use JavaScript and React as my main tools, for which I have deep professional sympathy for their flexibility and capabilities. At the same time, I devote time to studying Computer Science and algorithms to use the most optimal and fastest solutions.",
+    
+    "web_focus_title": "# Focus on web development",
+    "web_focus_text": "The main focus of my activity, however, is shifted towards web development. This direction requires constant learning of new things and offers a constant challenge to myself and my skills, which makes it so attractive to me, despite my long-standing attachment to the Apple ecosystem.",
+    
+    "community_title": "# Community",
+    "community_text": "In this regard, I feel the need to join a professional community of like-minded people. Sharing experience and networking with colleagues who share similar interests is extremely valuable for both personal and career growth. I hope this will happen someday and together we will build a new \"World\" by creating our own ecosystem.",
+    
+    "first_laptop_text": "12-year-old me saw my first laptop:",
+    "first_laptop_alt": "First laptop",
+    
+    "books_promo_text": "By the way, I also read a lot of books.",
+    "books_promo_link": "[My library]",
+    
+    "books_modal_content": "📚 Go to the library and see my favorite books?",
+    "books_modal_confirm": "Go",
+    "books_modal_cancel": "Cancel",
+    
+    "online_status": "ONLINE",
+    "tech_stack_label": "JS/React/Next",
+    "coding_status": "coding"
+}

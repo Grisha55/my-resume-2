@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Container } from '@/src/shared/ui/Container';
 import { HackerBackground } from '@/src/shared/ui/HackerBackground';
 import { StatusBar } from '@/src/shared/ui/StatusBar';
@@ -11,7 +12,8 @@ import { imageApi, Book } from '@/app/api/imageApi';
 export const BooksView = () => {
     const [books, setBooks] = useState<Book[]>([]);
     const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const t = useTranslations();
 
     useEffect(() => {
         const fetchImages = async () => {
@@ -20,7 +22,7 @@ export const BooksView = () => {
                 setBooks(data);
             } catch (error) {
                 console.error('Failed to load book images:', error);
-				setError(error instanceof Error ? error.message : 'Failed to load books');
+                setError(error instanceof Error ? error.message : 'Failed to load books');
             } finally {
                 setLoading(false);
             }
@@ -37,7 +39,7 @@ export const BooksView = () => {
         return (
             <div className="min-h-screen pt-20">
                 <Container>
-                    <div className="text-center text-gray-400 animate-pulse">Loading library...</div>
+                    <div className="text-center text-gray-400 animate-pulse">{t('books_loading')}</div>
                 </Container>
             </div>
         );
@@ -48,8 +50,8 @@ export const BooksView = () => {
             <div className="min-h-screen pt-20 bg-black">
                 <Container>
                     <div className="text-center text-red-500">
-                        <p>Error: {error}</p>
-                        <p className="mt-2 text-sm text-gray-400">Make sure JSON Server is running on port 8000</p>
+                        <p>{t('books_error')}: {error}</p>
+                        <p className="mt-2 text-sm text-gray-400">{t('books_error_hint')}</p>
                     </div>
                 </Container>
             </div>
@@ -64,18 +66,19 @@ export const BooksView = () => {
                 <TerminalWindow 
                     title="root@resume:~/books$"
                     subtitle="ls -la /books --details"
-                    headerText=">_ Другое! 📚"
+                    headerText={t('books_header')}
                 >
                     <VStack gap="24" className="w-full">
                         {/* Кубик-Рубика */}
                         <div className="group">
                             <div className="flex items-center gap-2 text-(--primary-color) mb-2">
                                 <span className="font-mono text-sm">$&gt;</span>
-                                <span className="font-mono text-sm opacity-70"># Кубик-Рубика 🧩</span>
+                                <span className="font-mono text-sm opacity-70">{t('rubiks_cube_title')}</span>
                             </div>
                             <p className="pl-4 border-l-2 border-(--primary-color)/30 hover:border-(--primary-color) transition-all text-gray-300 font-mono text-sm leading-relaxed">
-                                5 лет назад я научился собирать кубик-Рубика. Я даже участвовал в соревнованиях по собиранию его на скорость. 
-                                Мой рекорд — <span className="text-(--primary-color)">12 секунд</span>. Сейчас я собираю кубик для того, чтобы размять руки перед рабочим днем.
+                                {t('rubiks_cube_text_start')}
+                                <span className="text-(--primary-color)">{t('rubiks_cube_record')}</span>
+                                {t('rubiks_cube_text_end')}
                             </p>
                         </div>
 
@@ -83,11 +86,10 @@ export const BooksView = () => {
                         <div className="group">
                             <div className="flex items-center gap-2 text-(--primary-color) mb-2">
                                 <span className="font-mono text-sm">$&gt;</span>
-                                <span className="font-mono text-sm opacity-70"># Фильмы 🎬</span>
+                                <span className="font-mono text-sm opacity-70">{t('movies_title')}</span>
                             </div>
                             <p className="pl-4 border-l-2 border-(--primary-color)/30 hover:border-(--primary-color) transition-all text-gray-300 font-mono text-sm leading-relaxed">
-                                Я обожаю смотреть фильмы — новинки. Мне всегда было интересно наблюдать за прогрессом кинематографа. 
-                                Я люблю фильмы Netflix за их яркий спектр красок. Также из моих любимчиков есть такие фильмы, как:
+                                {t('movies_text')}
                             </p>
                             <div className="pl-4 mt-2 space-y-1">
                                 <div className="flex items-center gap-2">
@@ -98,7 +100,7 @@ export const BooksView = () => {
                                         rel="noopener noreferrer"
                                         className="text-gray-300 hover:text-(--primary-color) transition-colors font-mono text-sm"
                                     >
-                                        [«Зеленая миля»]
+                                        {t('movie_green_mile')}
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -109,7 +111,7 @@ export const BooksView = () => {
                                         rel="noopener noreferrer"
                                         className="text-gray-300 hover:text-(--primary-color) transition-colors font-mono text-sm"
                                     >
-                                        [«Девушка из каюты №10»]
+                                        {t('movie_woman_in_cabin')}
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -120,7 +122,7 @@ export const BooksView = () => {
                                         rel="noopener noreferrer"
                                         className="text-gray-300 hover:text-(--primary-color) transition-colors font-mono text-sm"
                                     >
-                                        [«Ручная кладь»]
+                                        {t('movie_carry_on')}
                                     </a>
                                 </div>
                             </div>
@@ -130,10 +132,10 @@ export const BooksView = () => {
                         <div className="group">
                             <div className="flex items-center gap-2 text-(--primary-color) mb-2">
                                 <span className="font-mono text-sm">$&gt;</span>
-                                <span className="font-mono text-sm opacity-70"># Любимые книги 📖</span>
+                                <span className="font-mono text-sm opacity-70">{t('books_fav_title')}</span>
                             </div>
                             <p className="pl-4 border-l-2 border-(--primary-color)/30 text-gray-400 font-mono text-sm mb-4">
-                                Одни из моих самых любимых книг:
+                                {t('books_fav_text')}
                             </p>
                             <div className="pl-4">
                                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -173,9 +175,9 @@ export const BooksView = () => {
     ║         │  v2.0.0     │                    ║
     ║         ╰─────────────╯                    ║
     ║    ┌─────────────────────────┐             ║
-    ║    │  BOOKS_COLLECTION: 6    │             ║
-    ║    │  PAGES_READ: ∞          │             ║
-    ║    │  FAV_GENRE: SCI-FI      │             ║
+    ║    │  ${t('books_ascii_collection')}: ${books.length}    │             ║
+    ║    │  ${t('books_ascii_pages')}: ∞          │             ║
+    ║    │  ${t('books_ascii_genre')}: ${t('books_ascii_genre_value')}      │             ║
     ║    └─────────────────────────┘             ║
     ╚══════════════════════════════════════════╝`}
                             </pre>
@@ -185,13 +187,13 @@ export const BooksView = () => {
                         <div className="mt-2 p-3 border border-(--primary-color)/20 rounded-lg bg-black/30">
                             <div className="grid grid-cols-2 gap-2 font-mono text-xs">
                                 <div className="text-gray-400">{'>'} rubiks_cube_record:</div>
-                                <div className="text-(--primary-color)">12 sec</div>
+                                <div className="text-(--primary-color)">{t('stats_cube_record')}</div>
                                 <div className="text-gray-400">{'>'} favorite_platform:</div>
-                                <div className="text-(--primary-color)">Netflix</div>
+                                <div className="text-(--primary-color)">{t('stats_platform')}</div>
                                 <div className="text-gray-400">{'>'} books_read:</div>
-                                <div className="text-(--primary-color)">infinite 🔄</div>
+                                <div className="text-(--primary-color)">{t('stats_books_read')}</div>
                                 <div className="text-gray-400">{'>'} current_mood:</div>
-                                <div className="text-(--primary-color) animate-pulse">READING_MODE</div>
+                                <div className="text-(--primary-color) animate-pulse">{t('stats_mood')}</div>
                             </div>
                         </div>
                     </VStack>
@@ -201,7 +203,7 @@ export const BooksView = () => {
                         path="~/books"
                         rightItems={[
                             { icon: '📚', label: 'books', value: books.length },
-                            { icon: '🎬', label: 'movies', value: 'watched', color: 'text-[var(--primary-color)]' },
+                            { icon: '🎬', label: 'movies', value: t('status_watched'), color: 'text-[var(--primary-color)]' },
                             { icon: '🧩', label: 'cube', value: '12s', color: 'text-yellow-500' }
                         ]}
                     />

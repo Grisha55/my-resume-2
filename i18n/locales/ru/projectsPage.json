@@ -1,0 +1,13 @@
+{
+    "projects_header": ">_ Мои проекты -> .... ..",
+    "projects_list_title": "# Список проектов",
+    "projects_list_description": "Вот неполный и неупорядоченный список проектов, над которыми я работал:",
+    
+    "contact_form_title": "Для связи со мной:",
+    "contact_form_submit": "Отправить",
+    "contact_form_success": "✓ Сообщение отправлено!",
+    "contact_form_error": "✗ Ошибка отправки. Попробуйте позже.",
+    
+    "projects_count": "projects",
+    "github_status": "connected"
+}

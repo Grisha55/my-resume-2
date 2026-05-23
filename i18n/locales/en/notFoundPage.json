@@ -1,0 +1,12 @@
+{
+    "not_found_title": ">_ ERROR_404: PAGE_NOT_FOUND.exe",
+    "not_found_error": "Error: The requested resource was not found in the system.",
+    "not_found_possible_causes": "Possible causes",
+    "not_found_cause_moved": "The page has been moved or deleted",
+    "not_found_cause_wrong_url": "Invalid URL in request",
+    "not_found_cause_access_denied": "Insufficient access rights",
+    "not_found_security_warning": "System security: Your IP address has been logged",
+    "not_found_redirect_command": "automatic_redirect.exe --countdown=",
+    "not_found_back_home": "BACK HOME",
+    "not_found_go_back": "GO BACK"
+}

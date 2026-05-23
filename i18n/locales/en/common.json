@@ -1,12 +1,16 @@
 {
-  "nav": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "contacts": "Contacts"
-  },
-  "theme": {
-    "light": "Light",
-    "dark": "Dark"
-  }
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "tennis": "Tennis",
+        "books": "Books",
+        "alpha": "Alpha"
+    },
+    "footer": {
+        "back_to_top": "↑ Back to top",
+        "terms_of_use": "Terms of Use",
+        "privacy_policy": "Privacy Policy",
+        "copyright": "© {year} Gregory. Built with Next.js & Tailwind CSS"
+    }
 }
