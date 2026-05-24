@@ -3,15 +3,12 @@
 > _От тенниса — к первой строке кода. От яблочной экосистемы — к миру веб-разработки._
 
 <div align="center">
-  <img src="public/assets/avatar.jpg" alt="Logo" width="120" style="border-radius: 50%; border: 2px solid #00ff41;" />
-  
   [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
   [![i18n](https://img.shields.io/badge/i18n-next--intl-ff69b4?style=for-the-badge)](https://next-intl.dev/)
   
   ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-  ![GitHub Pages](https://img.shields.io/badge/hosted-GitHub%20Pages-222222?style=for-the-badge&logo=github)
 </div>
 
 ---
@@ -53,10 +50,6 @@
 ### Backend & API
 - **[JSON Server](https://github.com/typicode/json-server)** — мок-бэкенд для контента
 - **[Multer](https://github.com/expressjs/multer)** — загрузка файлов (изображения секций)
-
-### Deploy & CI/CD
-- **[GitHub Actions](https://github.com/features/actions)** — автоматический деплой
-- **[GitHub Pages](https://pages.github.com/)** — хостинг статического сайта
 
 ### Разработка и инструменты
 - **Turbopack** — быстрая сборка в режиме разработки
