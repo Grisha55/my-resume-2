@@ -2,7 +2,7 @@
 
 > _От тенниса — к первой строке кода. От яблочной экосистемы — к миру веб-разработки._
 
-<div align="center">
+<div>
 
   [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
