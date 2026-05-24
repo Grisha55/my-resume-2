@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Container } from '@/src/shared/ui/Container';
@@ -17,10 +17,56 @@ export function AboutView() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const t = useTranslations();
     const fullText = t('main_title');
+    const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    const handleAlphaClick = () => {
-        setIsModalOpen(true);
+    const handleMouseEnter = () => {
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+        }
+        hoverTimeoutRef.current = setTimeout(() => {
+            setIsModalOpen(true);
+        }, 300);
     };
+
+    const handleMouseLeave = () => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = null;
+        }
+        closeTimeoutRef.current = setTimeout(() => {
+            setIsModalOpen(false);
+        }, 300);
+    };
+
+    const handleModalMouseEnter = () => {
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+    };
+
+    const handleModalMouseLeave = () => {
+        closeTimeoutRef.current = setTimeout(() => {
+            setIsModalOpen(false);
+        }, 300);
+    };
+
+    // Очистка таймеров при размонтировании
+    useEffect(() => {
+        return () => {
+            if (hoverTimeoutRef.current) {
+                clearTimeout(hoverTimeoutRef.current);
+            }
+            if (closeTimeoutRef.current) {
+                clearTimeout(closeTimeoutRef.current);
+            }
+        };
+    }, []);
 
     return (
         <div
@@ -82,14 +128,8 @@ export function AboutView() {
                                     <p className="pl-4 border-l-2 border-(--primary-color)/30 hover:border-(--primary-color) transition-all text-gray-300 font-mono text-sm leading-relaxed">
                                         {t('philosophy_text_start')}
                                         <span
-                                            onClick={handleAlphaClick}
-                                            onMouseEnter={(e) => {
-                                                e.currentTarget.style.textShadow = '0 0 5px var(--primary-color)';
-                                                e.currentTarget.style.cursor = 'pointer';
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                e.currentTarget.style.textShadow = 'none';
-                                            }}
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
                                             className="inline-block text-(--primary-color) hover:text-(--accent-redesigned) transition-all duration-300 font-bold cursor-pointer underline decoration-dotted underline-offset-4"
                                         >
                                             {t('alpha_name')} 🐕
@@ -137,20 +177,27 @@ export function AboutView() {
                 </VStack>
             </Container>
 
-            {/* Модальное окно для Альфы */}
-            <HackerModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                title="ALPHA_SYSTEM"
-                content={`${t('easter_found')} 🐕 ${t('go_to_alpha')}`}
-                showButtons={true}
-                confirmText={t('go_to')}
-                cancelText={t('cancel')}
-                onConfirm={() => {
-                    setIsModalOpen(false);
-                    router.push('/alpha');
-                }}
-            />
+            {/* Модальное окно для Альфы с обработкой наведения */}
+            {isModalOpen && (
+                <div
+                    onMouseEnter={handleModalMouseEnter}
+                    onMouseLeave={handleModalMouseLeave}
+                >
+                    <HackerModal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        title="ALPHA_SYSTEM"
+                        content={`${t('easter_found')} 🐕 ${t('go_to_alpha')}`}
+                        showButtons={true}
+                        confirmText={t('go_to')}
+                        cancelText={t('cancel')}
+                        onConfirm={() => {
+                            setIsModalOpen(false);
+                            router.push('/alpha');
+                        }}
+                    />
+                </div>
+            )}
         </div>
     );
 }
