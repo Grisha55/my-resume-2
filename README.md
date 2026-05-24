@@ -3,9 +3,13 @@
 > _От тенниса — к первой строке кода. От яблочной экосистемы — к миру веб-разработки._
 
 <div align="center">
+
   [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+
   [![i18n](https://img.shields.io/badge/i18n-next--intl-ff69b4?style=for-the-badge)](https://next-intl.dev/)
   
   ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
