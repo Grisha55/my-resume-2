@@ -1,0 +1,16 @@
+{
+    "navigation": {
+        "home": "Главная",
+        "about": "Обо мне",
+        "projects": "Проекты",
+        "tennis": "Теннис",
+        "books": "Книги",
+        "alpha": "Альфа"
+    },
+    "footer": {
+        "back_to_top": "↑ Back to top",
+        "terms_of_use": "Terms of Use",
+        "privacy_policy": "Privacy Policy",
+        "copyright": "© {year} Gregory. Built with Next.js & Tailwind CSS"
+    }
+}

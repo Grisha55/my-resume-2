@@ -1,0 +1,33 @@
+.app_dark_theme {
+    /* Базовые цвета - хакерский вайб */
+    --bg-color: #000000;
+    --inverted-bg-color: #00ff41;
+    --primary-color: #00ff41;       /* Ядовито-зелёный */
+    --secondary-color: #008f11;
+    --inverted-primary-color: #ff00ff;
+    --inverted-secondary-color: #cc00cc;
+
+    /* redesigned - тёмный UI */
+    --dark-bg-redesigned: #0a0a0a;
+    --bg-redesigned: #0f0f0f;
+    --light-bg-redesigned: #1a1a1a;
+    --text-redesigned: #c0ffc0;
+    --hint-redesigned: #4a4a4a;
+    --cancel-redesigned: #ff3366;
+    --save-redesigned: #33ff66;
+    --icon-redesigned: #00ff41;
+    --accent-redesigned: #00ffff;
+
+    /* Эффекты */
+    --skeleton-color: #1a3a1a;
+    --skeleton-shadow: #00ff4120;
+    --code-bg: #0d0d0d;
+    --card-bg: #0a0a0a;
+    --listbox-bg: #0a0a0a;
+    --header-bg: #1a1a1a;
+
+    /* Для модального окна */
+    --overlay-color: rgba(0, 0, 0, 0.8);
+    --card-bg: #0a0a0a;
+    --modal-border: rgba(0, 255, 65, 0.3);
+}

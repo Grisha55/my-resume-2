@@ -1,0 +1,30 @@
+.app_light_theme {
+    --bg-color: #f8f9fa;
+    --inverted-bg-color: #0a0a0a;
+    --primary-color: #008000;
+    --secondary-color: #00a000;
+    --inverted-primary-color: #ff00ff;
+    --inverted-secondary-color: #cc00cc;
+
+    --dark-bg-redesigned: #e0e0e0;
+    --bg-redesigned: #f5f5f0;
+    --light-bg-redesigned: #fafaf5;
+    --text-redesigned: #1a1a1a;
+    --hint-redesigned: #6b6b6b;
+    --cancel-redesigned: #cc3333;
+    --save-redesigned: #00aa44;
+    --icon-redesigned: #2c2c2c;
+    --accent-redesigned: #0088cc;
+
+    --skeleton-color: #e8e8e8;
+    --skeleton-shadow: #d4d4d4;
+    --code-bg: #f0f0eb;
+    --card-bg: #ffffff;
+    --listbox-bg: #ffffff;
+    --header-bg: #f5f5f0;
+
+    /* Для модального окна - светлый полупрозрачный оверлей */
+    --overlay-color: rgba(0, 0, 0, 0.4);
+    --card-bg: #ffffff;
+    --modal-border: rgba(0, 128, 0, 0.3);
+}

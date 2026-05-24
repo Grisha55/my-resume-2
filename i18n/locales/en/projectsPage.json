@@ -1,0 +1,13 @@
+{
+    "projects_header": ">_ My projects -> .... ..",
+    "projects_list_title": "# Projects list",
+    "projects_list_description": "Here is an incomplete and unordered list of projects I've worked on:",
+    
+    "contact_form_title": "Contact me:",
+    "contact_form_submit": "Send",
+    "contact_form_success": "✓ Message sent!",
+    "contact_form_error": "✗ Send error. Please try again later.",
+    
+    "projects_count": "projects",
+    "github_status": "connected"
+}

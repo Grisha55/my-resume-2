@@ -1,0 +1,1 @@
+export { BooksView } from './ui/BooksPage';

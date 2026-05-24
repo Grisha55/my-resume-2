@@ -1,0 +1,32 @@
+{
+    "books_loading": "Loading library...",
+    "books_error": "Error",
+    "books_error_hint": "Make sure JSON Server is running on port 8000",
+    "books_header": ">_ Other! 📚",
+    
+    "rubiks_cube_title": "# Rubik's Cube 🧩",
+    "rubiks_cube_text_start": "5 years ago I learned to solve the Rubik's Cube. I even participated in speedcubing competitions. My record is ",
+    "rubiks_cube_record": "12 seconds",
+    "rubiks_cube_text_end": ". Now I solve the cube to warm up my hands before work.",
+    
+    "movies_title": "# Movies 🎬",
+    "movies_text": "I love watching new movies. I've always been interested in watching the progress of cinema. I love Netflix movies for their vibrant colors. My favorites include:",
+    "movie_green_mile": "[The Green Mile]",
+    "movie_woman_in_cabin": "[The Woman in Cabin 10]",
+    "movie_carry_on": "[Carry-On]",
+    
+    "books_fav_title": "# Favorite books 📖",
+    "books_fav_text": "Some of my favorite books:",
+    
+    "books_ascii_collection": "BOOKS_COLLECTION",
+    "books_ascii_pages": "PAGES_READ",
+    "books_ascii_genre": "FAV_GENRE",
+    "books_ascii_genre_value": "SCI-FI",
+    
+    "stats_cube_record": "12 sec",
+    "stats_platform": "Netflix",
+    "stats_books_read": "infinite 🔄",
+    "stats_mood": "READING_MODE",
+    
+    "status_watched": "watched"
+}
