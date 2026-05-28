@@ -6,6 +6,7 @@
   <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js" alt="Next.js" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript" alt="TypeScript" /></a>
   <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" /></a>
+  <a href="https://redux-toolkit.js.org/"><img src="https://img.shields.io/badge/Redux_Toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white" alt="Redux Toolkit" /></a>
   <a href="https://next-intl.dev/"><img src="https://img.shields.io/badge/i18n-next--intl-ff69b4?style=for-the-badge" alt="i18n" /></a>
   <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License" />
 </p>
@@ -36,6 +37,7 @@
 - **[Next.js 16](https://nextjs.org/)** — React-фреймворк с App Router
 - **[TypeScript](https://www.typescriptlang.org/)** — типобезопасность
 - **[React 18](https://react.dev/)** — UI-библиотека
+- **[Redux Toolkit](https://redux-toolkit.js.org/)** — управление состоянием и кэширование API (RTK Query)
 
 ### Styling & UI
 - **[Tailwind CSS](https://tailwindcss.com/)** — утилитарный CSS-фреймворк
