@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.6",
+    "@reduxjs/toolkit": "^2.12.0",
     "i18next": "^26.1.0",
     "negotiator": "^1.0.0",
     "next": "16.2.4",
@@ -19,7 +20,8 @@
     "next-intl": "^4.11.2",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-i18next": "^17.0.7"
+    "react-i18next": "^17.0.7",
+    "react-redux": "^9.3.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
